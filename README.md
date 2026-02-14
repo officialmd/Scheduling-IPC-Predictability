@@ -10,7 +10,7 @@ Assessing predictability of QNX synchronous inter-process communication (IPC) me
 ## Team Members
 
 - Mohamad Deifallah
-- Farid Modjabo
+- Farid Moddibo
 - Derrick Zhang
 - Mohamed Rehman
 - Jawad Nasrallah
