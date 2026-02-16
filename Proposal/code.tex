@@ -1,0 +1,184 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\setlist{noitemsep, topsep=0pt}
+
+\title{
+    \vspace{-2em}
+    \textbf{\Large Project Proposal}\\[0.5em]
+    \large COMP 4900E -- Real-Time Operating Systems\\
+    \normalsize Winter 2026
+    \vspace{-1em}
+}
+
+\author{
+Mohamad Deifallah, Farid Modibbo, Derrick Zhang,\\
+Mohammad Rehman, Jawad Nasrallah
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Short Title and Brief Description}
+
+\textbf{Title:} Scheduling \& IPC Predictability
+
+\textbf{Description:} Assessing predictability of QNX synchronous inter-process communication (IPC) mechanisms for local and distributed real-time systems.
+
+\section{Authors and Responsibilities}
+
+\subsection{Team Members}
+
+\begin{itemize}
+\item Mohamad Deifallah: QNX setup and baseline experiments
+\item Farid Modibbo: Data Analysis \& Documentation
+\item Derrick Zhang: IPC implementation
+\item Mohammad Rehman: Distributed QNET testing
+\item Jawad Nasrallah: APS partition experiments
+\end{itemize}
+
+\subsection{Timeline}
+
+\begin{itemize}
+\item Week 7 (Winter Break): Environment setup, QNX installation, literature review
+\item Weeks 8-9: Baseline and inheritance experiments
+\item Weeks 10-11: APS partition and QNET distributed experiments
+\item Weeks 12-13: Data analysis, comparison, report writing, presentation preparation
+\end{itemize}
+
+\section{Detailed Description}
+
+\subsection{Domain Description}
+
+QNX is widely used in safety and time-critical systems. It provides synchronous message passing as a core IPC mechanism for client--server designs via MsgSend(), MsgReceive(), and MsgReply(). Predictability becomes harder when synchronous message passing interacts with QNX's Adaptive Partitioning Scheduler (APS), which enforces CPU budgets using partitions in a fixed-priority framework. QNX also supports priority and partition inheritance intended to reduce priority inversion and improve temporal isolation, and QNET enables transparent distributed communication across nodes. This project focuses on experimentally characterizing timing behavior and validating predictability claims in local and distributed deployments.
+
+\subsection{Research Question}
+
+The selected paper addresses a practical gap: QNX is closed source and the interaction between APS and synchronous message passing (including inheritance and distributed QNET behavior) is not sufficiently documented for rigorous real-time modeling. The authors run extensive experiments to formalize synchronous message passing behavior as a set of rules and then derive worst-case response-time analysis for client--server applications, modeling client waits as self-suspensions. Our research question: Do we observe the same timing behaviors and key predictability implications (local vs distributed, inheritance effects, latency vs message size), and how closely do measured results match the paper's reported trends?
+
+\subsection{Development Technology}
+
+\noindent\textbf{Tools and Utilities:}
+\begin{itemize}
+\item QNX Momentics IDE
+\item QNX System Profiler
+\end{itemize}
+
+\noindent\textbf{Programming Language:}
+\begin{itemize}
+\item C (Primary Language)
+\item QNX native APIs:
+\begin{itemize}
+\item MsgSend()
+\item MsgReceive()
+\item MsgReply()
+\item Thread priority APIs
+\item Partition management APIs
+\end{itemize}
+\end{itemize}
+
+\noindent\textbf{Operating System:}
+\begin{itemize}
+\item QNX RTOS
+\item QNET
+\item Adaptive Partitioning Scheduler
+\end{itemize}
+
+\noindent\textbf{Team Familiarity:}
+
+Our team has experience with C programming and general operating systems concepts. However, QNX-specific features such as synchronous message passing, the Adaptive Partitioning Scheduler, and QNET are new to us. We will allocate the initial weeks to studying QNX documentation (System Architecture guide, Programmer's Guide, and APS User Guide) and working through example implementations. We anticipate a learning curve with partition configuration and distributed communication, which we will address through incremental experimentation starting with simpler local setups before moving to distributed scenarios.
+
+\noindent\textbf{Hardware and Platform:}
+
+We will use either physical hardware (Raspberry Pi 4B as used in the paper) or QNX virtual machines depending on availability. For distributed experiments, we will require at least two nodes connected via Ethernet. We would like to match the paper's QNX 7.1 Software Development Platform setup if we can.
+
+\subsection{Study Method}
+
+\noindent\textbf{Phase 1: Reproduce baseline synchronous message passing behaviour (local with no inheritance)}
+
+\begin{itemize}
+\item Implement one server thread that loops on MsgReceive(), processes a request, then MsgReply()
+\item Implement N client threads that periodically perform some CPU work, then call MsgSend() and block until reply
+\item We will measure:
+\begin{itemize}
+\item Client-side observed response time per request
+\item Server-side ordering when multiple messages queue
+\end{itemize}
+\end{itemize}
+
+\noindent\textbf{Phase 2: Enable inheritance and observe priority effects (local)}
+
+\begin{itemize}
+\item Repeat step 1 but with inheritance enabled
+\item We will measure:
+\begin{itemize}
+\item Differences between with and without inheritance run
+\item Server priority over time and whether it follows the requesting client priorities
+\end{itemize}
+\end{itemize}
+
+\noindent\textbf{Phase 3: APS partition experiments (local)}
+
+\begin{itemize}
+\item Create two partitions with specific budgets, place client in one partition and server in another
+\item Measuring:
+\begin{itemize}
+\item Request latency under different budget allocations
+\item Evidence of partition inheritance effects when client/server are co-located (the research paper's local inheritance rule implies server execution may be billed to the client's partition in local cases)
+\end{itemize}
+\item Report: latency distributions and worst-case observations under each configuration
+\end{itemize}
+
+\noindent\textbf{Phase 4: Distributed QNET experiments (physically distributed nodes)}
+
+\begin{itemize}
+\item Deploy clients on Node A and server on Node B, connected via QNET
+\item We will measure:
+\begin{itemize}
+\item Round-trip latency vs message size and compare local vs distributed results
+\item Inheritance behavior across node boundaries and any observed differences in budgeting behavior relative to local. (Research highlights that local results vs distributed result differences are crucial to predictability)
+\end{itemize}
+\end{itemize}
+
+\noindent\textbf{Phase 5: Compare against paper}
+
+\begin{itemize}
+\item qualitative: ordering rules, inheritance effects, local vs distributed differences, trend shapes for latency vs message size
+\item quantitative: min/avg/max latency curves, worst-case observed request times for each configuration
+\end{itemize}
+
+\noindent\textbf{Experimental Parameters and Materials:}
+
+Following the paper's methodology, we will conduct multiple runs per configuration to ensure statistical validity. We will test with varying message sizes (96B to 2048B) to reproduce the latency curves shown in the paper's Figure 6. Key targets include the communication latency trends, execution traces showing priority inheritance, and response time comparisons. 
+
+Measurements will include minimum, average, and maximum values for each configuration, logged using QNX's event tracing facility. We will compare our results against the paper's reported values. The exact hardware platform, number of runs, and test durations will be determined during setup based on resource availability.
+
+\section{References}
+
+\noindent\textbf{Primary Research Paper:}
+
+M. Becker, D. Dasari and D. Casini, ``On the QNX IPC: Assessing Predictability for Local and Distributed Real-Time Systems,'' 2023 IEEE 29th Real-Time and Embedded Technology and Applications Symposium (RTAS), San Antonio, TX, USA, 2023, pp. 289-302, doi: \url{https://doi.org/10.1109/RTAS58335.2023.00030}
+
+\vspace{1em}
+
+\noindent\textbf{Project Repository:} \url{https://github.com/officialmd/Scheduling-IPC-Predictability}
+
+\end{document}
