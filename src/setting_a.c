@@ -1,9 +1,12 @@
 /*
 setting a: baseline ipc experiment, no inheritance, no aps.
 
-we have 4 clients and 1 server. each client does some cpu work
-then sends a message to the server and waits for a reply.
-we are replicating the paper: becker et al., ieee rtas 2023.
+same as v1 but now we added a logging system so we can record
+state transitions for each thread. this lets us compare our
+results against the paper's figure 2a and listings 1 and 2.
+
+the log captures: time, thread id, event name, and priority.
+we sort and print it at the end as an execution trace.
 
 thread parameters (period ms, wcet ms, offset ms, priority):
   c1 = (200, 10,  0, 236)
@@ -11,9 +14,6 @@ thread parameters (period ms, wcet ms, offset ms, priority):
   c3 = (200, 10, 12, 241)
   c4 = (200, 10, 18, 240)
   s1 = priority 238
-
-note: priorities are shifted down 14 from the paper so we dont
-need root. the relative ordering is the same.
 */
 
 #include <stdio.h>
@@ -55,14 +55,26 @@ typedef struct {
     int ack;
 } server_reply_t;
 
+// one log entry records a single state transition
+#define LOG_MAX 8192
+
+typedef struct {
+    double time_ms;
+    int    thread_id;   // 0 = server, 1..4 = clients
+    char   event[32];
+    int    priority;
+} log_entry_t;
+
+static log_entry_t     g_log[LOG_MAX];
+static volatile int    g_log_idx = 0;
+static pthread_mutex_t g_log_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 
 /*
 elapsed_ms
 
 input: nothing
 output: double, ms since experiment started
-
-returns how many milliseconds have passed since g_start was set.
 */
 static double elapsed_ms(void) {
     struct timespec now;
@@ -85,8 +97,7 @@ burn_cpu_ms
 input: ms, how long to busy wait
 output: nothing
 
-simulates cpu work by busy waiting. we use this instead of sleep
-because sleep yields the cpu which is not the same as real computation.
+simulates cpu work by busy waiting instead of sleeping.
 */
 static void burn_cpu_ms(long long ms) {
     struct timespec start, now;
@@ -98,6 +109,69 @@ static void burn_cpu_ms(long long ms) {
             + (long long)(now.tv_nsec - start.tv_nsec)) < target_ns);
 }
 
+/*
+log_event
+
+input: thread_id (0=server, 1-4=clients), event name string, priority
+output: nothing
+
+appends one state transition to the log. uses a mutex so threads
+dont overwrite each other.
+*/
+static void log_event(int thread_id, const char *event, int priority) {
+    pthread_mutex_lock(&g_log_mutex);
+    int idx = g_log_idx;
+    if (idx < LOG_MAX) {
+        g_log[idx].time_ms   = elapsed_ms();
+        g_log[idx].thread_id = thread_id;
+        strncpy(g_log[idx].event, event, sizeof(g_log[idx].event) - 1);
+        g_log[idx].event[sizeof(g_log[idx].event) - 1] = '\0';
+        g_log[idx].priority  = priority;
+        g_log_idx++;
+    }
+    pthread_mutex_unlock(&g_log_mutex);
+}
+
+/*
+print_log
+
+input: nothing
+output: nothing
+
+sorts log entries by time and prints them as a table.
+uses insertion sort since the log is small enough.
+*/
+static void print_log(void) {
+    printf("\n========== execution trace ==========\n");
+    printf("%-14s %-8s %-20s %-8s\n", "time(ms)", "thread", "event", "priority");
+    printf("%-14s %-8s %-20s %-8s\n", "--------", "------", "-----", "--------");
+
+    for (int i = 1; i < g_log_idx; i++) {
+        log_entry_t key = g_log[i];
+        int j = i - 1;
+        while (j >= 0 && g_log[j].time_ms > key.time_ms) {
+            g_log[j + 1] = g_log[j];
+            j--;
+        }
+        g_log[j + 1] = key;
+    }
+
+    for (int i = 0; i < g_log_idx; i++) {
+        const char *name;
+        switch (g_log[i].thread_id) {
+            case 0:  name = "s1"; break;
+            case 1:  name = "c1"; break;
+            case 2:  name = "c2"; break;
+            case 3:  name = "c3"; break;
+            case 4:  name = "c4"; break;
+            default: name = "??"; break;
+        }
+        printf("%-14.4f %-8s %-20s %-8d\n",
+               g_log[i].time_ms, name, g_log[i].event, g_log[i].priority);
+    }
+    printf("=====================================\n");
+}
+
 
 /*
 server_thread
@@ -105,8 +179,8 @@ server_thread
 input: arg, unused
 output: NULL
 
-creates a channel, then loops receiving messages from clients,
-simulating 10ms of work, and replying.
+creates a channel, loops receiving messages, simulates work,
+and replies. logs RECEIVE_BLOCKED and RUNNING transitions.
 */
 static void *server_thread(void *arg) {
     (void)arg;
@@ -124,6 +198,8 @@ static void *server_thread(void *arg) {
     int            rcvid;
 
     while (g_running) {
+        log_event(0, "RECEIVE_BLOCKED", SERVER_PRIORITY);
+
         rcvid = MsgReceive(g_chid, &msg, sizeof(msg), NULL);
         if (rcvid == -1) {
             if (!g_running) break;
@@ -131,6 +207,7 @@ static void *server_thread(void *arg) {
             break;
         }
 
+        log_event(0, "RUNNING", SERVER_PRIORITY);
         printf("[s1] %.4f ms  handling request from c%d\n",
                elapsed_ms(), msg.client_id);
 
@@ -138,6 +215,7 @@ static void *server_thread(void *arg) {
 
         reply.ack = 1;
         MsgReply(rcvid, EOK, &reply, sizeof(reply));
+        log_event(0, "READY", SERVER_PRIORITY);
     }
 
     ChannelDestroy(g_chid);
@@ -160,15 +238,13 @@ client_thread
 input: arg, pointer to client_arg_t
 output: NULL
 
-waits for its offset, then each period: burns cpu for half wcet,
-sends a message to the server, waits for reply, burns remaining cpu,
-then sleeps for the rest of the period.
+each period: logs READY, burns cpu, logs SEND_BLOCKED, calls msgsend,
+logs RUNNING when reply comes back, burns remaining cpu, sleeps.
 */
 static void *client_thread(void *arg) {
     client_arg_t *p = (client_arg_t *)arg;
 
     sleep_ms(p->offset_ms);
-
     while (g_coid == -1) usleep(1000);
 
     printf("[c%d] started at priority %d\n", p->id, p->priority);
@@ -180,18 +256,17 @@ static void *client_thread(void *arg) {
     msg.client_id = p->id;
 
     while (g_running) {
+        log_event(p->id, "READY", p->priority);
         burn_cpu_ms(p->wcet_ms / 2);
 
-        printf("[c%d] %.4f ms  sending\n", p->id, elapsed_ms());
-
+        log_event(p->id, "SEND_BLOCKED", p->priority);
         int ret = MsgSend(g_coid, &msg, sizeof(msg), &reply, sizeof(reply));
         if (ret == -1) {
             if (!g_running) break;
             break;
         }
 
-        printf("[c%d] %.4f ms  got reply\n", p->id, elapsed_ms());
-
+        log_event(p->id, "RUNNING", p->priority);
         burn_cpu_ms(p->wcet_ms / 2);
 
         long long remaining = (long long)p->period_ms - (long long)p->wcet_ms;
@@ -208,11 +283,11 @@ main
 input: nothing
 output: 0 on success
 
-starts the server, waits for it to create its channel, connects to
-it, then starts all 4 client threads and waits for the experiment.
+starts the server, connects to its channel, starts all 4 clients,
+waits for the experiment, then prints the log.
 */
 int main(void) {
-    printf("=== setting a: basic ipc, no logging yet ===\n\n");
+    printf("=== setting a: added logging ===\n\n");
 
     clock_gettime(CLOCK_MONOTONIC, &g_start);
 
@@ -261,6 +336,7 @@ int main(void) {
     g_running = 0;
     sleep(1);
 
+    print_log();
     ConnectDetach(g_coid);
     return EXIT_SUCCESS;
 }
