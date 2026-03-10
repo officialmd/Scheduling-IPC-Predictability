@@ -212,7 +212,7 @@ starts the server, waits for it to create its channel, connects to
 it, then starts all 4 client threads and waits for the experiment.
 */
 int main(void) {
-    printf("=== setting a v1: basic ipc, no logging yet ===\n\n");
+    printf("=== setting a: basic ipc, no logging yet ===\n\n");
 
     clock_gettime(CLOCK_MONOTONIC, &g_start);
 
