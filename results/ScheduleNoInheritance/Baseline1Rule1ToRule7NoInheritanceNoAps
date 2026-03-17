@@ -1,0 +1,993 @@
+=== setting a: baseline ipc, no inheritance, no aps ===
+replicating figure 2a
+
+[s1] started at priority 238, channel id = 1
+[main] connected to server channel (chid=1, coid=1073741825)
+
+[c1] started at priority 236, period=200ms, offset=0ms
+[main] created c1 at priority 236
+[main] created c2 at priority 239
+[main] created c3 at priority 241
+[main] created c4 at priority 240
+
+[main] experiment running for 5 seconds...
+
+[c1] 5.2370 ms  send_blocked
+[s1] 5.4671 ms  handling request from c1
+[c2] started at priority 239, period=200ms, offset=6ms
+[c2] 13.0095 ms  send_blocked
+[s1] 15.5762 ms  handling request from c2
+[c3] started at priority 241, period=200ms, offset=12ms
+[c3] 20.6924 ms  send_blocked
+[c1] 20.6992 ms  running (got reply)
+[s1] 25.5835 ms  handling request from c3
+[c2] 25.7037 ms  running (got reply)
+[c4] started at priority 240, period=200ms, offset=18ms
+[c4] 33.7191 ms  send_blocked
+[c3] 35.6317 ms  running (got reply)
+[s1] 35.6853 ms  handling request from c4
+[c4] 45.7326 ms  running (got reply)
+[c2] 229.2950 ms  send_blocked
+[c1] 229.3584 ms  send_blocked
+[s1] 229.4506 ms  handling request from c2
+[c2] 239.4650 ms  running (got reply)
+[c3] 239.6235 ms  send_blocked
+[s1] 239.6302 ms  handling request from c1
+[s1] 249.7225 ms  handling request from c3
+[c4] 254.8670 ms  send_blocked
+[c1] 254.8758 ms  running (got reply)
+[c3] 259.7306 ms  running (got reply)
+[s1] 259.8854 ms  handling request from c4
+[c4] 269.9327 ms  running (got reply)
+[c2] 440.9170 ms  send_blocked
+[s1] 440.9676 ms  handling request from c2
+[c2] 451.0858 ms  running (got reply)
+[c1] 456.1605 ms  send_blocked
+[s1] 456.2034 ms  handling request from c1
+[c3] 461.3158 ms  send_blocked
+[s1] 466.2142 ms  handling request from c3
+[c4] 470.7027 ms  send_blocked
+[c1] 470.7091 ms  running (got reply)
+[c3] 476.2634 ms  running (got reply)
+[s1] 476.3151 ms  handling request from c4
+[c4] 486.3730 ms  running (got reply)
+[c2] 653.3649 ms  send_blocked
+[s1] 653.4113 ms  handling request from c2
+[c2] 663.4587 ms  running (got reply)
+[c1] 671.5833 ms  send_blocked
+[s1] 671.6463 ms  handling request from c1
+[c3] 677.3705 ms  send_blocked
+[s1] 681.7918 ms  handling request from c3
+[c1] 681.8293 ms  running (got reply)
+[c3] 691.8007 ms  running (got reply)
+[c4] 692.0560 ms  send_blocked
+[s1] 692.0631 ms  handling request from c4
+[c4] 702.1199 ms  running (got reply)
+[c2] 864.4318 ms  send_blocked
+[s1] 864.4770 ms  handling request from c2
+[c2] 874.5216 ms  running (got reply)
+[c1] 884.7224 ms  send_blocked
+[s1] 884.7787 ms  handling request from c1
+[c1] 894.7860 ms  running (got reply)
+[c3] 897.8274 ms  send_blocked
+[s1] 897.8349 ms  handling request from c3
+[c4] 904.9492 ms  send_blocked
+[c3] 907.8830 ms  running (got reply)
+[s1] 907.9251 ms  handling request from c4
+[c4] 917.9838 ms  running (got reply)
+[c2] 1075.2948 ms  send_blocked
+[s1] 1075.3402 ms  handling request from c2
+[c2] 1085.3986 ms  running (got reply)
+[c1] 1099.9766 ms  send_blocked
+[s1] 1100.0209 ms  handling request from c1
+[c1] 1110.0285 ms  running (got reply)
+[c3] 1113.8350 ms  send_blocked
+[s1] 1113.8966 ms  handling request from c3
+[c4] 1119.0525 ms  send_blocked
+[c3] 1123.9450 ms  running (got reply)
+[s1] 1123.9981 ms  handling request from c4
+[c4] 1134.0567 ms  running (got reply)
+[c2] 1286.2567 ms  send_blocked
+[s1] 1286.3020 ms  handling request from c2
+[c2] 1296.3466 ms  running (got reply)
+[c1] 1318.1079 ms  send_blocked
+[s1] 1318.1521 ms  handling request from c1
+[c1] 1328.1596 ms  running (got reply)
+[c3] 1329.9812 ms  send_blocked
+[s1] 1329.9885 ms  handling request from c3
+[c4] 1338.3295 ms  send_blocked
+[c3] 1340.0359 ms  running (got reply)
+[s1] 1340.0780 ms  handling request from c4
+[c4] 1350.1247 ms  running (got reply)
+[c2] 1497.5371 ms  send_blocked
+[s1] 1497.5943 ms  handling request from c2
+[c2] 1507.6502 ms  running (got reply)
+[c1] 1533.2901 ms  send_blocked
+[s1] 1533.3462 ms  handling request from c1
+[c1] 1543.3536 ms  running (got reply)
+[c3] 1546.0677 ms  send_blocked
+[s1] 1546.0752 ms  handling request from c3
+[c4] 1553.5178 ms  send_blocked
+[c3] 1556.1355 ms  running (got reply)
+[s1] 1556.1875 ms  handling request from c4
+[c4] 1566.4220 ms  running (got reply)
+[c2] 1708.8714 ms  send_blocked
+[s1] 1708.9196 ms  handling request from c2
+[c2] 1718.9648 ms  running (got reply)
+[c1] 1744.5630 ms  send_blocked
+[s1] 1744.6095 ms  handling request from c1
+[c1] 1754.6692 ms  running (got reply)
+[c3] 1759.8514 ms  send_blocked
+[s1] 1759.9550 ms  handling request from c3
+[c3] 1770.0513 ms  running (got reply)
+[c4] 1780.2658 ms  send_blocked
+[s1] 1780.4060 ms  handling request from c4
+[c4] 1790.4512 ms  running (got reply)
+[c2] 1919.7874 ms  send_blocked
+[s1] 1919.8314 ms  handling request from c2
+[c2] 1929.8773 ms  running (got reply)
+[c1] 1955.5402 ms  send_blocked
+[s1] 1955.5987 ms  handling request from c1
+[c1] 1965.6445 ms  running (got reply)
+[c3] 1975.8424 ms  send_blocked
+[s1] 1975.8865 ms  handling request from c3
+[c3] 1985.9826 ms  running (got reply)
+[c4] 1996.1806 ms  send_blocked
+[s1] 1996.2296 ms  handling request from c4
+[c4] 2006.3232 ms  running (got reply)
+[c2] 2130.7500 ms  send_blocked
+[s1] 2130.8417 ms  handling request from c2
+[c2] 2140.8839 ms  running (got reply)
+[c1] 2166.5581 ms  send_blocked
+[s1] 2166.6075 ms  handling request from c1
+[c1] 2176.6694 ms  running (got reply)
+[c3] 2187.0525 ms  send_blocked
+[s1] 2187.0987 ms  handling request from c3
+[c3] 2197.1580 ms  running (got reply)
+[c4] 2207.7870 ms  send_blocked
+[s1] 2207.8446 ms  handling request from c4
+[c4] 2217.8912 ms  running (got reply)
+[c2] 2342.1364 ms  send_blocked
+[s1] 2342.1807 ms  handling request from c2
+[c2] 2352.2266 ms  running (got reply)
+[c1] 2377.8794 ms  send_blocked
+[s1] 2377.9237 ms  handling request from c1
+[c1] 2387.9679 ms  running (got reply)
+[c3] 2399.4199 ms  send_blocked
+[s1] 2399.4638 ms  handling request from c3
+[c3] 2409.5207 ms  running (got reply)
+[c4] 2419.7176 ms  send_blocked
+[s1] 2419.7627 ms  handling request from c4
+[c4] 2429.8076 ms  running (got reply)
+[c2] 2553.6739 ms  send_blocked
+[s1] 2553.7191 ms  handling request from c2
+[c2] 2563.7642 ms  running (got reply)
+[c1] 2588.9428 ms  send_blocked
+[s1] 2588.9858 ms  handling request from c1
+[c1] 2599.0327 ms  running (got reply)
+[c3] 2610.4791 ms  send_blocked
+[s1] 2610.5960 ms  handling request from c3
+[c3] 2620.6043 ms  running (got reply)
+[c4] 2630.2141 ms  send_blocked
+[s1] 2630.2625 ms  handling request from c4
+[c4] 2640.3104 ms  running (got reply)
+[c2] 2764.4060 ms  send_blocked
+[s1] 2764.4491 ms  handling request from c2
+[c2] 2774.5099 ms  running (got reply)
+[c1] 2799.6963 ms  send_blocked
+[s1] 2799.7394 ms  handling request from c1
+[c1] 2809.7832 ms  running (got reply)
+[c3] 2823.8631 ms  send_blocked
+[s1] 2823.9073 ms  handling request from c3
+[c3] 2833.9504 ms  running (got reply)
+[c4] 2841.0997 ms  send_blocked
+[s1] 2841.1457 ms  handling request from c4
+[c4] 2851.1905 ms  running (got reply)
+[c2] 2975.1972 ms  send_blocked
+[s1] 2975.2404 ms  handling request from c2
+[c2] 2985.2852 ms  running (got reply)
+[c1] 3013.2765 ms  send_blocked
+[s1] 3013.3170 ms  handling request from c1
+[c1] 3023.4270 ms  running (got reply)
+[c3] 3036.8150 ms  send_blocked
+[s1] 3036.8585 ms  handling request from c3
+[c3] 3046.9041 ms  running (got reply)
+[c4] 3052.1476 ms  send_blocked
+[s1] 3052.1896 ms  handling request from c4
+[c4] 3062.2315 ms  running (got reply)
+[c2] 3186.4667 ms  send_blocked
+[s1] 3186.5099 ms  handling request from c2
+[c2] 3196.5543 ms  running (got reply)
+[c1] 3224.7307 ms  send_blocked
+[s1] 3224.7744 ms  handling request from c1
+[c1] 3234.8296 ms  running (got reply)
+[c3] 3247.2253 ms  send_blocked
+[s1] 3247.2720 ms  handling request from c3
+[c3] 3257.3845 ms  running (got reply)
+[c4] 3265.9465 ms  send_blocked
+[s1] 3265.9906 ms  handling request from c4
+[c4] 3276.0498 ms  running (got reply)
+[c2] 3397.1483 ms  send_blocked
+[s1] 3397.1908 ms  handling request from c2
+[c2] 3407.2324 ms  running (got reply)
+[c1] 3435.4634 ms  send_blocked
+[s1] 3435.5150 ms  handling request from c1
+[c1] 3445.6107 ms  running (got reply)
+[c3] 3462.4136 ms  send_blocked
+[s1] 3462.4679 ms  handling request from c3
+[c3] 3472.5197 ms  running (got reply)
+[c4] 3477.7828 ms  send_blocked
+[s1] 3477.7900 ms  handling request from c4
+[c4] 3487.8355 ms  running (got reply)
+[c2] 3608.3789 ms  send_blocked
+[s1] 3608.4193 ms  handling request from c2
+[c2] 3618.4621 ms  running (got reply)
+[c1] 3646.6115 ms  send_blocked
+[s1] 3646.6537 ms  handling request from c1
+[c1] 3656.7077 ms  running (got reply)
+[c3] 3677.6313 ms  send_blocked
+[s1] 3677.7020 ms  handling request from c3
+[c3] 3687.7942 ms  running (got reply)
+[c4] 3692.9856 ms  send_blocked
+[s1] 3693.0292 ms  handling request from c4
+[c4] 3703.0695 ms  running (got reply)
+[c2] 3820.4109 ms  send_blocked
+[s1] 3820.4531 ms  handling request from c2
+[c2] 3830.5082 ms  running (got reply)
+[c1] 3858.0517 ms  send_blocked
+[s1] 3858.0927 ms  handling request from c1
+[c1] 3868.2351 ms  running (got reply)
+[c3] 3894.3631 ms  send_blocked
+[s1] 3894.4072 ms  handling request from c3
+[c3] 3904.4945 ms  running (got reply)
+[c4] 3909.7115 ms  send_blocked
+[s1] 3909.7588 ms  handling request from c4
+[c4] 3919.8054 ms  running (got reply)
+[c2] 4031.5587 ms  send_blocked
+[s1] 4031.6117 ms  handling request from c2
+[c2] 4041.6542 ms  running (got reply)
+[c1] 4069.7603 ms  send_blocked
+[s1] 4069.8020 ms  handling request from c1
+[c1] 4079.8677 ms  running (got reply)
+[c3] 4106.4136 ms  send_blocked
+[s1] 4106.4537 ms  handling request from c3
+[c3] 4116.4605 ms  running (got reply)
+[c4] 4120.2201 ms  send_blocked
+[s1] 4120.2270 ms  handling request from c4
+[c4] 4130.2696 ms  running (got reply)
+[c2] 4242.4247 ms  send_blocked
+[s1] 4242.4685 ms  handling request from c2
+[c2] 4252.5294 ms  running (got reply)
+[c1] 4280.7518 ms  send_blocked
+[s1] 4280.7912 ms  handling request from c1
+[c1] 4290.8327 ms  running (got reply)
+[c3] 4318.5627 ms  send_blocked
+[s1] 4318.6042 ms  handling request from c3
+[c3] 4328.6582 ms  running (got reply)
+[c4] 4333.8618 ms  send_blocked
+[s1] 4333.8681 ms  handling request from c4
+[c4] 4343.9116 ms  running (got reply)
+[c2] 4453.8005 ms  send_blocked
+[s1] 4453.8424 ms  handling request from c2
+[c2] 4463.9245 ms  running (got reply)
+[c1] 4493.9744 ms  send_blocked
+[s1] 4494.0265 ms  handling request from c1
+[c1] 4504.0815 ms  running (got reply)
+[c3] 4529.1299 ms  send_blocked
+[s1] 4529.1715 ms  handling request from c3
+[c3] 4539.2610 ms  running (got reply)
+[c4] 4544.5449 ms  send_blocked
+[s1] 4544.5892 ms  handling request from c4
+[c4] 4554.7041 ms  running (got reply)
+[c2] 4664.5728 ms  send_blocked
+[s1] 4664.6263 ms  handling request from c2
+[c2] 4674.7374 ms  running (got reply)
+[c1] 4705.2038 ms  send_blocked
+[s1] 4705.2454 ms  handling request from c1
+[c1] 4715.2872 ms  running (got reply)
+[c3] 4740.2859 ms  send_blocked
+[s1] 4740.3306 ms  handling request from c3
+[c3] 4750.4437 ms  running (got reply)
+[c4] 4755.5032 ms  send_blocked
+[s1] 4755.5449 ms  handling request from c4
+[c4] 4765.5870 ms  running (got reply)
+[c2] 4875.1349 ms  send_blocked
+[s1] 4875.1855 ms  handling request from c2
+[c2] 4885.2964 ms  running (got reply)
+[c1] 4916.1884 ms  send_blocked
+[s1] 4916.2297 ms  handling request from c1
+[c1] 4926.3115 ms  running (got reply)
+[c3] 4964.8571 ms  send_blocked
+[s1] 4964.9018 ms  handling request from c3
+[c4] 4974.6053 ms  send_blocked
+[c3] 4974.9478 ms  running (got reply)
+[s1] 4975.0307 ms  handling request from c4
+[c4] 4985.0776 ms  running (got reply)
+[c2] done
+[c1] done
+[c3] done
+[c4] done
+
+========== execution trace ==========
+time(ms)       thread   event                priority
+--------       ------   -----                --------
+0.0813         s1       RECEIVE_BLOCKED      238     
+0.2364         c1       READY                236     
+5.2368         c1       SEND_BLOCKED         236     
+5.4668         s1       RUNNING              238     
+5.4670         c1       REPLY_BLOCKED        236     
+8.0089         c2       READY                239     
+13.0093        c2       SEND_BLOCKED         239     
+15.5742        s1       READY                238     
+15.5744        s1       RECEIVE_BLOCKED      238     
+15.5761        s1       RUNNING              238     
+15.5762        c2       REPLY_BLOCKED        239     
+15.6917        c3       READY                241     
+20.6922        c3       SEND_BLOCKED         241     
+20.6991        c1       RUNNING              236     
+25.5824        s1       READY                238     
+25.5825        s1       RECEIVE_BLOCKED      238     
+25.5834        s1       RUNNING              238     
+25.5834        c3       REPLY_BLOCKED        241     
+25.7036        c2       RUNNING              239     
+28.7186        c4       READY                240     
+33.7189        c4       SEND_BLOCKED         240     
+35.6286        s1       READY                238     
+35.6289        s1       RECEIVE_BLOCKED      238     
+35.6317        c3       RUNNING              241     
+35.6850        s1       RUNNING              238     
+35.6853        c4       REPLY_BLOCKED        240     
+45.7299        s1       READY                238     
+45.7302        s1       RECEIVE_BLOCKED      238     
+45.7325        c4       RUNNING              240     
+224.2943       c2       READY                239     
+224.3577       c1       READY                236     
+229.2947       c2       SEND_BLOCKED         239     
+229.3582       c1       SEND_BLOCKED         236     
+229.4503       s1       RUNNING              238     
+229.4505       c2       REPLY_BLOCKED        239     
+234.6230       c3       READY                241     
+239.4629       s1       READY                238     
+239.4632       s1       RECEIVE_BLOCKED      238     
+239.4649       c2       RUNNING              239     
+239.6233       c3       SEND_BLOCKED         241     
+239.6300       s1       RUNNING              238     
+239.6301       c1       REPLY_BLOCKED        236     
+249.7203       s1       READY                238     
+249.7206       s1       RECEIVE_BLOCKED      238     
+249.7223       s1       RUNNING              238     
+249.7224       c3       REPLY_BLOCKED        241     
+249.8663       c4       READY                240     
+254.8668       c4       SEND_BLOCKED         240     
+254.8757       c1       RUNNING              236     
+259.7286       s1       READY                238     
+259.7287       s1       RECEIVE_BLOCKED      238     
+259.7305       c3       RUNNING              241     
+259.8851       s1       RUNNING              238     
+259.8853       c4       REPLY_BLOCKED        240     
+269.9298       s1       READY                238     
+269.9301       s1       RECEIVE_BLOCKED      238     
+269.9324       c4       RUNNING              240     
+435.9163       c2       READY                239     
+440.9169       c2       SEND_BLOCKED         239     
+440.9673       s1       RUNNING              238     
+440.9675       c2       REPLY_BLOCKED        239     
+451.0833       s1       READY                238     
+451.0836       s1       RECEIVE_BLOCKED      238     
+451.0857       c2       RUNNING              239     
+451.1599       c1       READY                236     
+456.1603       c1       SEND_BLOCKED         236     
+456.2031       s1       RUNNING              238     
+456.2033       c1       REPLY_BLOCKED        236     
+456.3152       c3       READY                241     
+461.3157       c3       SEND_BLOCKED         241     
+465.7022       c4       READY                240     
+466.2130       s1       READY                238     
+466.2132       s1       RECEIVE_BLOCKED      238     
+466.2140       s1       RUNNING              238     
+466.2141       c3       REPLY_BLOCKED        241     
+470.7025       c4       SEND_BLOCKED         240     
+470.7090       c1       RUNNING              236     
+476.2602       s1       READY                238     
+476.2605       s1       RECEIVE_BLOCKED      238     
+476.2633       c3       RUNNING              241     
+476.3148       s1       RUNNING              238     
+476.3150       c4       REPLY_BLOCKED        240     
+486.3704       s1       READY                238     
+486.3706       s1       RECEIVE_BLOCKED      238     
+486.3729       c4       RUNNING              240     
+648.3644       c2       READY                239     
+653.3648       c2       SEND_BLOCKED         239     
+653.4110       s1       RUNNING              238     
+653.4112       c2       REPLY_BLOCKED        239     
+663.4561       s1       READY                238     
+663.4564       s1       RECEIVE_BLOCKED      238     
+663.4587       c2       RUNNING              239     
+666.5827       c1       READY                236     
+671.5832       c1       SEND_BLOCKED         236     
+671.6460       s1       RUNNING              238     
+671.6462       c1       REPLY_BLOCKED        236     
+672.3699       c3       READY                241     
+677.3703       c3       SEND_BLOCKED         241     
+681.7864       s1       READY                238     
+681.7867       s1       RECEIVE_BLOCKED      238     
+681.7916       s1       RUNNING              238     
+681.7918       c3       REPLY_BLOCKED        241     
+681.8291       c1       RUNNING              236     
+687.0555       c4       READY                240     
+691.7991       s1       READY                238     
+691.7993       s1       RECEIVE_BLOCKED      238     
+691.8006       c3       RUNNING              241     
+692.0559       c4       SEND_BLOCKED         240     
+692.0628       s1       RUNNING              238     
+692.0630       c4       REPLY_BLOCKED        240     
+702.1172       s1       READY                238     
+702.1174       s1       RECEIVE_BLOCKED      238     
+702.1197       c4       RUNNING              240     
+859.4313       c2       READY                239     
+864.4317       c2       SEND_BLOCKED         239     
+864.4766       s1       RUNNING              238     
+864.4768       c2       REPLY_BLOCKED        239     
+874.5191       s1       READY                238     
+874.5193       s1       RECEIVE_BLOCKED      238     
+874.5216       c2       RUNNING              239     
+879.7219       c1       READY                236     
+884.7223       c1       SEND_BLOCKED         236     
+884.7783       s1       RUNNING              238     
+884.7787       c1       REPLY_BLOCKED        236     
+892.8268       c3       READY                241     
+894.7845       s1       READY                238     
+894.7847       s1       RECEIVE_BLOCKED      238     
+894.7859       c1       RUNNING              236     
+897.8272       c3       SEND_BLOCKED         241     
+897.8347       s1       RUNNING              238     
+897.8348       c3       REPLY_BLOCKED        241     
+899.9486       c4       READY                240     
+904.9490       c4       SEND_BLOCKED         240     
+907.8797       s1       READY                238     
+907.8800       s1       RECEIVE_BLOCKED      238     
+907.8829       c3       RUNNING              241     
+907.9249       s1       RUNNING              238     
+907.9251       c4       REPLY_BLOCKED        240     
+917.9812       s1       READY                238     
+917.9814       s1       RECEIVE_BLOCKED      238     
+917.9837       c4       RUNNING              240     
+1070.2942      c2       READY                239     
+1075.2947      c2       SEND_BLOCKED         239     
+1075.3399      s1       RUNNING              238     
+1075.3401      c2       REPLY_BLOCKED        239     
+1085.3960      s1       READY                238     
+1085.3962      s1       RECEIVE_BLOCKED      238     
+1085.3985      c2       RUNNING              239     
+1094.9760      c1       READY                236     
+1099.9764      c1       SEND_BLOCKED         236     
+1100.0203      s1       RUNNING              238     
+1100.0208      c1       REPLY_BLOCKED        236     
+1108.8345      c3       READY                241     
+1110.0267      s1       READY                238     
+1110.0270      s1       RECEIVE_BLOCKED      238     
+1110.0284      c1       RUNNING              236     
+1113.8349      c3       SEND_BLOCKED         241     
+1113.8963      s1       RUNNING              238     
+1113.8965      c3       REPLY_BLOCKED        241     
+1114.0519      c4       READY                240     
+1119.0523      c4       SEND_BLOCKED         240     
+1123.9415      s1       READY                238     
+1123.9417      s1       RECEIVE_BLOCKED      238     
+1123.9446      c3       RUNNING              241     
+1123.9979      s1       RUNNING              238     
+1123.9981      c4       REPLY_BLOCKED        240     
+1134.0540      s1       READY                238     
+1134.0543      s1       RECEIVE_BLOCKED      238     
+1134.0565      c4       RUNNING              240     
+1281.2562      c2       READY                239     
+1286.2566      c2       SEND_BLOCKED         239     
+1286.3017      s1       RUNNING              238     
+1286.3019      c2       REPLY_BLOCKED        239     
+1296.3441      s1       READY                238     
+1296.3443      s1       RECEIVE_BLOCKED      238     
+1296.3465      c2       RUNNING              239     
+1313.1075      c1       READY                236     
+1318.1078      c1       SEND_BLOCKED         236     
+1318.1518      s1       RUNNING              238     
+1318.1521      c1       REPLY_BLOCKED        236     
+1324.9807      c3       READY                241     
+1328.1580      s1       READY                238     
+1328.1581      s1       RECEIVE_BLOCKED      238     
+1328.1595      c1       RUNNING              236     
+1329.9811      c3       SEND_BLOCKED         241     
+1329.9883      s1       RUNNING              238     
+1329.9884      c3       REPLY_BLOCKED        241     
+1333.3289      c4       READY                240     
+1338.3293      c4       SEND_BLOCKED         240     
+1340.0326      s1       READY                238     
+1340.0329      s1       RECEIVE_BLOCKED      238     
+1340.0358      c3       RUNNING              241     
+1340.0777      s1       RUNNING              238     
+1340.0779      c4       REPLY_BLOCKED        240     
+1350.1216      s1       READY                238     
+1350.1219      s1       RECEIVE_BLOCKED      238     
+1350.1244      c4       RUNNING              240     
+1492.5366      c2       READY                239     
+1497.5369      c2       SEND_BLOCKED         239     
+1497.5938      s1       RUNNING              238     
+1497.5941      c2       REPLY_BLOCKED        239     
+1507.6477      s1       READY                238     
+1507.6479      s1       RECEIVE_BLOCKED      238     
+1507.6502      c2       RUNNING              239     
+1528.2895      c1       READY                236     
+1533.2899      c1       SEND_BLOCKED         236     
+1533.3459      s1       RUNNING              238     
+1533.3462      c1       REPLY_BLOCKED        236     
+1541.0672      c3       READY                241     
+1543.3520      s1       READY                238     
+1543.3522      s1       RECEIVE_BLOCKED      238     
+1543.3534      c1       RUNNING              236     
+1546.0676      c3       SEND_BLOCKED         241     
+1546.0750      s1       RUNNING              238     
+1546.0750      c3       REPLY_BLOCKED        241     
+1548.5172      c4       READY                240     
+1553.5175      c4       SEND_BLOCKED         240     
+1556.1318      s1       READY                238     
+1556.1321      s1       RECEIVE_BLOCKED      238     
+1556.1354      c3       RUNNING              241     
+1556.1872      s1       RUNNING              238     
+1556.1875      c4       REPLY_BLOCKED        240     
+1566.4195      s1       READY                238     
+1566.4198      s1       RECEIVE_BLOCKED      238     
+1566.4217      c4       RUNNING              240     
+1703.8708      c2       READY                239     
+1708.8713      c2       SEND_BLOCKED         239     
+1708.9190      s1       RUNNING              238     
+1708.9195      c2       REPLY_BLOCKED        239     
+1718.9623      s1       READY                238     
+1718.9625      s1       RECEIVE_BLOCKED      238     
+1718.9648      c2       RUNNING              239     
+1739.5625      c1       READY                236     
+1744.5628      c1       SEND_BLOCKED         236     
+1744.6091      s1       RUNNING              238     
+1744.6093      c1       REPLY_BLOCKED        236     
+1754.6665      s1       READY                238     
+1754.6667      s1       RECEIVE_BLOCKED      238     
+1754.6691      c1       RUNNING              236     
+1754.8508      c3       READY                241     
+1759.8512      c3       SEND_BLOCKED         241     
+1759.9547      s1       RUNNING              238     
+1759.9550      c3       REPLY_BLOCKED        241     
+1770.0486      s1       READY                238     
+1770.0488      s1       RECEIVE_BLOCKED      238     
+1770.0512      c3       RUNNING              241     
+1775.2653      c4       READY                240     
+1780.2656      c4       SEND_BLOCKED         240     
+1780.4057      s1       RUNNING              238     
+1780.4059      c4       REPLY_BLOCKED        240     
+1790.4485      s1       READY                238     
+1790.4488      s1       RECEIVE_BLOCKED      238     
+1790.4510      c4       RUNNING              240     
+1914.7869      c2       READY                239     
+1919.7872      c2       SEND_BLOCKED         239     
+1919.8309      s1       RUNNING              238     
+1919.8311      c2       REPLY_BLOCKED        239     
+1929.8747      s1       READY                238     
+1929.8749      s1       RECEIVE_BLOCKED      238     
+1929.8772      c2       RUNNING              239     
+1950.5396      c1       READY                236     
+1955.5400      c1       SEND_BLOCKED         236     
+1955.5982      s1       RUNNING              238     
+1955.5986      c1       REPLY_BLOCKED        236     
+1965.6419      s1       READY                238     
+1965.6422      s1       RECEIVE_BLOCKED      238     
+1965.6444      c1       RUNNING              236     
+1970.8418      c3       READY                241     
+1975.8422      c3       SEND_BLOCKED         241     
+1975.8862      s1       RUNNING              238     
+1975.8864      c3       REPLY_BLOCKED        241     
+1985.9797      s1       READY                238     
+1985.9800      s1       RECEIVE_BLOCKED      238     
+1985.9825      c3       RUNNING              241     
+1991.1801      c4       READY                240     
+1996.1805      c4       SEND_BLOCKED         240     
+1996.2293      s1       RUNNING              238     
+1996.2296      c4       REPLY_BLOCKED        240     
+2006.3206      s1       READY                238     
+2006.3208      s1       RECEIVE_BLOCKED      238     
+2006.3230      c4       RUNNING              240     
+2125.7496      c2       READY                239     
+2130.7499      c2       SEND_BLOCKED         239     
+2130.8413      s1       RUNNING              238     
+2130.8415      c2       REPLY_BLOCKED        239     
+2140.8814      s1       READY                238     
+2140.8817      s1       RECEIVE_BLOCKED      238     
+2140.8838      c2       RUNNING              239     
+2161.5575      c1       READY                236     
+2166.5579      c1       SEND_BLOCKED         236     
+2166.6072      s1       RUNNING              238     
+2166.6075      c1       REPLY_BLOCKED        236     
+2176.6666      s1       READY                238     
+2176.6670      s1       RECEIVE_BLOCKED      238     
+2176.6693      c1       RUNNING              236     
+2182.0519      c3       READY                241     
+2187.0523      c3       SEND_BLOCKED         241     
+2187.0985      s1       RUNNING              238     
+2187.0987      c3       REPLY_BLOCKED        241     
+2197.1553      s1       READY                238     
+2197.1556      s1       RECEIVE_BLOCKED      238     
+2197.1579      c3       RUNNING              241     
+2202.7865      c4       READY                240     
+2207.7869      c4       SEND_BLOCKED         240     
+2207.8443      s1       RUNNING              238     
+2207.8445      c4       REPLY_BLOCKED        240     
+2217.8885      s1       READY                238     
+2217.8887      s1       RECEIVE_BLOCKED      238     
+2217.8911      c4       RUNNING              240     
+2337.1359      c2       READY                239     
+2342.1362      c2       SEND_BLOCKED         239     
+2342.1804      s1       RUNNING              238     
+2342.1806      c2       REPLY_BLOCKED        239     
+2352.2241      s1       READY                238     
+2352.2244      s1       RECEIVE_BLOCKED      238     
+2352.2266      c2       RUNNING              239     
+2372.8788      c1       READY                236     
+2377.8792      c1       SEND_BLOCKED         236     
+2377.9233      s1       RUNNING              238     
+2377.9235      c1       REPLY_BLOCKED        236     
+2387.9653      s1       READY                238     
+2387.9656      s1       RECEIVE_BLOCKED      238     
+2387.9678      c1       RUNNING              236     
+2394.4193      c3       READY                241     
+2399.4197      c3       SEND_BLOCKED         241     
+2399.4635      s1       RUNNING              238     
+2399.4637      c3       REPLY_BLOCKED        241     
+2409.5181      s1       READY                238     
+2409.5183      s1       RECEIVE_BLOCKED      238     
+2409.5206      c3       RUNNING              241     
+2414.7170      c4       READY                240     
+2419.7174      c4       SEND_BLOCKED         240     
+2419.7624      s1       RUNNING              238     
+2419.7626      c4       REPLY_BLOCKED        240     
+2429.8051      s1       READY                238     
+2429.8053      s1       RECEIVE_BLOCKED      238     
+2429.8075      c4       RUNNING              240     
+2548.6734      c2       READY                239     
+2553.6738      c2       SEND_BLOCKED         239     
+2553.7186      s1       RUNNING              238     
+2553.7189      c2       REPLY_BLOCKED        239     
+2563.7617      s1       READY                238     
+2563.7620      s1       RECEIVE_BLOCKED      238     
+2563.7642      c2       RUNNING              239     
+2583.9423      c1       READY                236     
+2588.9427      c1       SEND_BLOCKED         236     
+2588.9855      s1       RUNNING              238     
+2588.9858      c1       REPLY_BLOCKED        236     
+2599.0302      s1       READY                238     
+2599.0304      s1       RECEIVE_BLOCKED      238     
+2599.0326      c1       RUNNING              236     
+2605.4786      c3       READY                241     
+2610.4789      c3       SEND_BLOCKED         241     
+2610.5958      s1       RUNNING              238     
+2610.5960      c3       REPLY_BLOCKED        241     
+2620.6026      s1       READY                238     
+2620.6028      s1       RECEIVE_BLOCKED      238     
+2620.6042      c3       RUNNING              241     
+2625.2135      c4       READY                240     
+2630.2139      c4       SEND_BLOCKED         240     
+2630.2622      s1       RUNNING              238     
+2630.2625      c4       REPLY_BLOCKED        240     
+2640.3078      s1       READY                238     
+2640.3080      s1       RECEIVE_BLOCKED      238     
+2640.3103      c4       RUNNING              240     
+2759.4056      c2       READY                239     
+2764.4059      c2       SEND_BLOCKED         239     
+2764.4486      s1       RUNNING              238     
+2764.4490      c2       REPLY_BLOCKED        239     
+2774.5075      s1       READY                238     
+2774.5077      s1       RECEIVE_BLOCKED      238     
+2774.5099      c2       RUNNING              239     
+2794.6958      c1       READY                236     
+2799.6961      c1       SEND_BLOCKED         236     
+2799.7391      s1       RUNNING              238     
+2799.7393      c1       REPLY_BLOCKED        236     
+2809.7807      s1       READY                238     
+2809.7809      s1       RECEIVE_BLOCKED      238     
+2809.7831      c1       RUNNING              236     
+2818.8626      c3       READY                241     
+2823.8629      c3       SEND_BLOCKED         241     
+2823.9070      s1       RUNNING              238     
+2823.9072      c3       REPLY_BLOCKED        241     
+2833.9479      s1       READY                238     
+2833.9482      s1       RECEIVE_BLOCKED      238     
+2833.9504      c3       RUNNING              241     
+2836.0991      c4       READY                240     
+2841.0996      c4       SEND_BLOCKED         240     
+2841.1453      s1       RUNNING              238     
+2841.1456      c4       REPLY_BLOCKED        240     
+2851.1879      s1       READY                238     
+2851.1881      s1       RECEIVE_BLOCKED      238     
+2851.1903      c4       RUNNING              240     
+2970.1967      c2       READY                239     
+2975.1971      c2       SEND_BLOCKED         239     
+2975.2401      s1       RUNNING              238     
+2975.2403      c2       REPLY_BLOCKED        239     
+2985.2827      s1       READY                238     
+2985.2829      s1       RECEIVE_BLOCKED      238     
+2985.2851      c2       RUNNING              239     
+3008.2760      c1       READY                236     
+3013.2764      c1       SEND_BLOCKED         236     
+3013.3167      s1       RUNNING              238     
+3013.3170      c1       REPLY_BLOCKED        236     
+3023.4242      s1       READY                238     
+3023.4245      s1       RECEIVE_BLOCKED      238     
+3023.4268      c1       RUNNING              236     
+3031.8145      c3       READY                241     
+3036.8148      c3       SEND_BLOCKED         241     
+3036.8582      s1       RUNNING              238     
+3036.8584      c3       REPLY_BLOCKED        241     
+3046.9016      s1       READY                238     
+3046.9018      s1       RECEIVE_BLOCKED      238     
+3046.9040      c3       RUNNING              241     
+3047.1471      c4       READY                240     
+3052.1475      c4       SEND_BLOCKED         240     
+3052.1893      s1       RUNNING              238     
+3052.1895      c4       REPLY_BLOCKED        240     
+3062.2290      s1       READY                238     
+3062.2293      s1       RECEIVE_BLOCKED      238     
+3062.2314      c4       RUNNING              240     
+3181.4662      c2       READY                239     
+3186.4665      c2       SEND_BLOCKED         239     
+3186.5093      s1       RUNNING              238     
+3186.5097      c2       REPLY_BLOCKED        239     
+3196.5519      s1       READY                238     
+3196.5521      s1       RECEIVE_BLOCKED      238     
+3196.5542      c2       RUNNING              239     
+3219.7298      c1       READY                236     
+3224.7305      c1       SEND_BLOCKED         236     
+3224.7741      s1       RUNNING              238     
+3224.7744      c1       REPLY_BLOCKED        236     
+3234.8271      s1       READY                238     
+3234.8274      s1       RECEIVE_BLOCKED      238     
+3234.8295      c1       RUNNING              236     
+3242.2246      c3       READY                241     
+3247.2251      c3       SEND_BLOCKED         241     
+3247.2717      s1       RUNNING              238     
+3247.2719      c3       REPLY_BLOCKED        241     
+3257.3817      s1       READY                238     
+3257.3820      s1       RECEIVE_BLOCKED      238     
+3257.3844      c3       RUNNING              241     
+3260.9459      c4       READY                240     
+3265.9464      c4       SEND_BLOCKED         240     
+3265.9903      s1       RUNNING              238     
+3265.9906      c4       REPLY_BLOCKED        240     
+3276.0471      s1       READY                238     
+3276.0473      s1       RECEIVE_BLOCKED      238     
+3276.0496      c4       RUNNING              240     
+3392.1478      c2       READY                239     
+3397.1482      c2       SEND_BLOCKED         239     
+3397.1905      s1       RUNNING              238     
+3397.1907      c2       REPLY_BLOCKED        239     
+3407.2300      s1       READY                238     
+3407.2302      s1       RECEIVE_BLOCKED      238     
+3407.2323      c2       RUNNING              239     
+3430.4629      c1       READY                236     
+3435.4632      c1       SEND_BLOCKED         236     
+3435.5147      s1       RUNNING              238     
+3435.5149      c1       REPLY_BLOCKED        236     
+3445.6079      s1       READY                238     
+3445.6082      s1       RECEIVE_BLOCKED      238     
+3445.6104      c1       RUNNING              236     
+3457.4131      c3       READY                241     
+3462.4134      c3       SEND_BLOCKED         241     
+3462.4676      s1       RUNNING              238     
+3462.4678      c3       REPLY_BLOCKED        241     
+3472.5172      s1       READY                238     
+3472.5175      s1       RECEIVE_BLOCKED      238     
+3472.5196      c3       RUNNING              241     
+3472.7823      c4       READY                240     
+3477.7827      c4       SEND_BLOCKED         240     
+3477.7899      s1       RUNNING              238     
+3477.7899      c4       REPLY_BLOCKED        240     
+3487.8329      s1       READY                238     
+3487.8331      s1       RECEIVE_BLOCKED      238     
+3487.8354      c4       RUNNING              240     
+3603.3784      c2       READY                239     
+3608.3787      c2       SEND_BLOCKED         239     
+3608.4190      s1       RUNNING              238     
+3608.4192      c2       REPLY_BLOCKED        239     
+3618.4597      s1       READY                238     
+3618.4599      s1       RECEIVE_BLOCKED      238     
+3618.4621      c2       RUNNING              239     
+3641.6110      c1       READY                236     
+3646.6113      c1       SEND_BLOCKED         236     
+3646.6534      s1       RUNNING              238     
+3646.6537      c1       REPLY_BLOCKED        236     
+3656.7052      s1       READY                238     
+3656.7055      s1       RECEIVE_BLOCKED      238     
+3656.7076      c1       RUNNING              236     
+3672.6305      c3       READY                241     
+3677.6311      c3       SEND_BLOCKED         241     
+3677.7014      s1       RUNNING              238     
+3677.7019      c3       REPLY_BLOCKED        241     
+3687.7917      s1       READY                238     
+3687.7919      s1       RECEIVE_BLOCKED      238     
+3687.7941      c3       RUNNING              241     
+3687.9851      c4       READY                240     
+3692.9855      c4       SEND_BLOCKED         240     
+3693.0289      s1       RUNNING              238     
+3693.0291      c4       REPLY_BLOCKED        240     
+3703.0672      s1       READY                238     
+3703.0674      s1       RECEIVE_BLOCKED      238     
+3703.0694      c4       RUNNING              240     
+3815.4103      c2       READY                239     
+3820.4107      c2       SEND_BLOCKED         239     
+3820.4528      s1       RUNNING              238     
+3820.4530      c2       REPLY_BLOCKED        239     
+3830.5057      s1       READY                238     
+3830.5060      s1       RECEIVE_BLOCKED      238     
+3830.5081      c2       RUNNING              239     
+3853.0511      c1       READY                236     
+3858.0516      c1       SEND_BLOCKED         236     
+3858.0924      s1       RUNNING              238     
+3858.0927      c1       REPLY_BLOCKED        236     
+3868.2325      s1       READY                238     
+3868.2327      s1       RECEIVE_BLOCKED      238     
+3868.2350      c1       RUNNING              236     
+3889.3626      c3       READY                241     
+3894.3629      c3       SEND_BLOCKED         241     
+3894.4070      s1       RUNNING              238     
+3894.4072      c3       REPLY_BLOCKED        241     
+3904.4920      s1       READY                238     
+3904.4923      s1       RECEIVE_BLOCKED      238     
+3904.4945      c3       RUNNING              241     
+3904.7108      c4       READY                240     
+3909.7113      c4       SEND_BLOCKED         240     
+3909.7585      s1       RUNNING              238     
+3909.7587      c4       REPLY_BLOCKED        240     
+3919.8029      s1       READY                238     
+3919.8031      s1       RECEIVE_BLOCKED      238     
+3919.8052      c4       RUNNING              240     
+4026.5582      c2       READY                239     
+4031.5586      c2       SEND_BLOCKED         239     
+4031.6111      s1       RUNNING              238     
+4031.6114      c2       REPLY_BLOCKED        239     
+4041.6518      s1       READY                238     
+4041.6521      s1       RECEIVE_BLOCKED      238     
+4041.6541      c2       RUNNING              239     
+4064.7599      c1       READY                236     
+4069.7602      c1       SEND_BLOCKED         236     
+4069.8017      s1       RUNNING              238     
+4069.8019      c1       REPLY_BLOCKED        236     
+4079.8651      s1       READY                238     
+4079.8654      s1       RECEIVE_BLOCKED      238     
+4079.8676      c1       RUNNING              236     
+4101.4130      c3       READY                241     
+4106.4134      c3       SEND_BLOCKED         241     
+4106.4534      s1       RUNNING              238     
+4106.4537      c3       REPLY_BLOCKED        241     
+4115.2196      c4       READY                240     
+4116.4590      s1       READY                238     
+4116.4592      s1       RECEIVE_BLOCKED      238     
+4116.4604      c3       RUNNING              241     
+4120.2200      c4       SEND_BLOCKED         240     
+4120.2268      s1       RUNNING              238     
+4120.2269      c4       REPLY_BLOCKED        240     
+4130.2671      s1       READY                238     
+4130.2674      s1       RECEIVE_BLOCKED      238     
+4130.2695      c4       RUNNING              240     
+4237.4241      c2       READY                239     
+4242.4246      c2       SEND_BLOCKED         239     
+4242.4682      s1       RUNNING              238     
+4242.4684      c2       REPLY_BLOCKED        239     
+4252.5270      s1       READY                238     
+4252.5272      s1       RECEIVE_BLOCKED      238     
+4252.5293      c2       RUNNING              239     
+4275.7511      c1       READY                236     
+4280.7516      c1       SEND_BLOCKED         236     
+4280.7910      s1       RUNNING              238     
+4280.7912      c1       REPLY_BLOCKED        236     
+4290.8302      s1       READY                238     
+4290.8304      s1       RECEIVE_BLOCKED      238     
+4290.8325      c1       RUNNING              236     
+4313.5622      c3       READY                241     
+4318.5626      c3       SEND_BLOCKED         241     
+4318.6037      s1       RUNNING              238     
+4318.6039      c3       REPLY_BLOCKED        241     
+4328.6556      s1       READY                238     
+4328.6559      s1       RECEIVE_BLOCKED      238     
+4328.6581      c3       RUNNING              241     
+4328.8612      c4       READY                240     
+4333.8617      c4       SEND_BLOCKED         240     
+4333.8679      s1       RUNNING              238     
+4333.8680      c4       REPLY_BLOCKED        240     
+4343.9091      s1       READY                238     
+4343.9093      s1       RECEIVE_BLOCKED      238     
+4343.9115      c4       RUNNING              240     
+4448.7999      c2       READY                239     
+4453.8003      c2       SEND_BLOCKED         239     
+4453.8421      s1       RUNNING              238     
+4453.8424      c2       REPLY_BLOCKED        239     
+4463.9219      s1       READY                238     
+4463.9222      s1       RECEIVE_BLOCKED      238     
+4463.9243      c2       RUNNING              239     
+4488.9734      c1       READY                236     
+4493.9741      c1       SEND_BLOCKED         236     
+4494.0262      s1       RUNNING              238     
+4494.0264      c1       REPLY_BLOCKED        236     
+4504.0785      s1       READY                238     
+4504.0787      s1       RECEIVE_BLOCKED      238     
+4504.0814      c1       RUNNING              236     
+4524.1293      c3       READY                241     
+4529.1297      c3       SEND_BLOCKED         241     
+4529.1712      s1       RUNNING              238     
+4529.1714      c3       REPLY_BLOCKED        241     
+4539.2586      s1       READY                238     
+4539.2588      s1       RECEIVE_BLOCKED      238     
+4539.2609      c3       RUNNING              241     
+4539.5443      c4       READY                240     
+4544.5447      c4       SEND_BLOCKED         240     
+4544.5889      s1       RUNNING              238     
+4544.5891      c4       REPLY_BLOCKED        240     
+4554.7013      s1       READY                238     
+4554.7016      s1       RECEIVE_BLOCKED      238     
+4554.7039      c4       RUNNING              240     
+4659.5722      c2       READY                239     
+4664.5726      c2       SEND_BLOCKED         239     
+4664.6260      s1       RUNNING              238     
+4664.6262      c2       REPLY_BLOCKED        239     
+4674.7347      s1       READY                238     
+4674.7350      s1       RECEIVE_BLOCKED      238     
+4674.7374      c2       RUNNING              239     
+4700.2032      c1       READY                236     
+4705.2036      c1       SEND_BLOCKED         236     
+4705.2451      s1       RUNNING              238     
+4705.2454      c1       REPLY_BLOCKED        236     
+4715.2846      s1       READY                238     
+4715.2850      s1       RECEIVE_BLOCKED      238     
+4715.2872      c1       RUNNING              236     
+4735.2852      c3       READY                241     
+4740.2857      c3       SEND_BLOCKED         241     
+4740.3302      s1       RUNNING              238     
+4740.3305      c3       REPLY_BLOCKED        241     
+4750.4409      s1       READY                238     
+4750.4412      s1       RECEIVE_BLOCKED      238     
+4750.4436      c3       RUNNING              241     
+4750.5028      c4       READY                240     
+4755.5031      c4       SEND_BLOCKED         240     
+4755.5447      s1       RUNNING              238     
+4755.5449      c4       REPLY_BLOCKED        240     
+4765.5843      s1       READY                238     
+4765.5846      s1       RECEIVE_BLOCKED      238     
+4765.5867      c4       RUNNING              240     
+4870.1345      c2       READY                239     
+4875.1348      c2       SEND_BLOCKED         239     
+4875.1852      s1       RUNNING              238     
+4875.1854      c2       REPLY_BLOCKED        239     
+4885.2936      s1       READY                238     
+4885.2939      s1       RECEIVE_BLOCKED      238     
+4885.2962      c2       RUNNING              239     
+4911.1879      c1       READY                236     
+4916.1883      c1       SEND_BLOCKED         236     
+4916.2294      s1       RUNNING              238     
+4916.2296      c1       REPLY_BLOCKED        236     
+4926.3091      s1       READY                238     
+4926.3093      s1       RECEIVE_BLOCKED      238     
+4926.3114      c1       RUNNING              236     
+4959.8566      c3       READY                241     
+4964.8570      c3       SEND_BLOCKED         241     
+4964.9012      s1       RUNNING              238     
+4964.9014      c3       REPLY_BLOCKED        241     
+4969.6030      c4       READY                240     
+4974.6046      c4       SEND_BLOCKED         240     
+4974.9445      s1       READY                238     
+4974.9448      s1       RECEIVE_BLOCKED      238     
+4974.9477      c3       RUNNING              241     
+4975.0302      s1       RUNNING              238     
+4975.0306      c4       REPLY_BLOCKED        240     
+4985.0751      s1       READY                238     
+4985.0753      s1       RECEIVE_BLOCKED      238     
+4985.0775      c4       RUNNING              240     
+=====================================
+key things to check:
+  r1: clients appear as READY at their release times
+  r2: clients go SEND_BLOCKED when they call msgsend
+  r5: clients go REPLY_BLOCKED then RUNNING after server replies
+  r4: server goes RECEIVE_BLOCKED when no messages are waiting
+  r7: server handles c3(241) before c4(240) before c2(239)
