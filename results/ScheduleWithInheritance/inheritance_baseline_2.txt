@@ -1,0 +1,1281 @@
+=== setting a: ipc with priority inheritance enabled ===
+target: validate r8 by observing server effective priority
+
+[s1] started at base priority 238, channel id = 1 (inheritance enabled)
+[main] connected to server channel (chid=1, coid=1073741825)
+
+[c1] started at priority 236, period=200ms, offset=0ms
+[main] created c1 at priority 236
+[main] created c2 at priority 239
+[main] created c3 at priority 241
+[main] created c4 at priority 240
+
+[main] inheritance experiment running for 5 seconds...
+
+[c1] 5.2239 ms  send_blocked
+[s1] 5.2847 ms  handling request from c1  (server eff prio=236)
+[c2] started at priority 239, period=200ms, offset=6ms
+[c1] 15.2937 ms  running (got reply)
+[c2] 16.7594 ms  send_blocked
+[s1] 16.7672 ms  handling request from c2  (server eff prio=239)
+[c3] started at priority 241, period=200ms, offset=12ms
+[c4] started at priority 240, period=200ms, offset=18ms
+[c3] 25.4853 ms  send_blocked
+[c4] 25.5335 ms  send_blocked
+[s1] 26.8147 ms  handling request from c3  (server eff prio=241)
+[c2] 26.8571 ms  running (got reply)
+[c3] 36.8646 ms  running (got reply)
+[s1] 36.9193 ms  handling request from c4  (server eff prio=240)
+[c4] 46.9680 ms  running (got reply)
+[c1] 217.3297 ms  send_blocked
+[s1] 217.3877 ms  handling request from c1  (server eff prio=236)
+[c1] 227.4487 ms  running (got reply)
+[c2] 234.1447 ms  send_blocked
+[s1] 234.2402 ms  handling request from c2  (server eff prio=239)
+[c3] 239.4103 ms  send_blocked
+[s1] 244.3971 ms  handling request from c3  (server eff prio=241)
+[c4] 249.4792 ms  send_blocked
+[c2] 249.4855 ms  running (got reply)
+[c3] 254.4316 ms  running (got reply)
+[s1] 254.5207 ms  handling request from c4  (server eff prio=240)
+[c4] 264.5692 ms  running (got reply)
+[c1] 430.3784 ms  send_blocked
+[s1] 430.4377 ms  handling request from c1  (server eff prio=236)
+[c1] 440.4809 ms  running (got reply)
+[c2] 451.0219 ms  send_blocked
+[s1] 451.0840 ms  handling request from c2  (server eff prio=239)
+[c3] 456.2673 ms  send_blocked
+[s1] 461.1437 ms  handling request from c3  (server eff prio=241)
+[c2] 461.3484 ms  running (got reply)
+[c3] 471.3247 ms  running (got reply)
+[c4] 476.4007 ms  send_blocked
+[s1] 476.4470 ms  handling request from c4  (server eff prio=240)
+[c4] 486.4966 ms  running (got reply)
+[c1] 647.6867 ms  send_blocked
+[s1] 647.7362 ms  handling request from c1  (server eff prio=236)
+[c1] 657.7797 ms  running (got reply)
+[c2] 662.7503 ms  send_blocked
+[s1] 662.7579 ms  handling request from c2  (server eff prio=239)
+[c2] 672.7668 ms  running (got reply)
+[c3] 673.0951 ms  send_blocked
+[s1] 673.1030 ms  handling request from c3  (server eff prio=241)
+[c3] 683.1108 ms  running (got reply)
+[c4] 687.2201 ms  send_blocked
+[s1] 687.2285 ms  handling request from c4  (server eff prio=240)
+[c4] 697.2764 ms  running (got reply)
+[c1] 858.2627 ms  send_blocked
+[s1] 858.3112 ms  handling request from c1  (server eff prio=236)
+[c1] 868.4296 ms  running (got reply)
+[c2] 873.5484 ms  send_blocked
+[s1] 873.6458 ms  handling request from c2  (server eff prio=239)
+[c2] 883.6552 ms  running (got reply)
+[c3] 884.7683 ms  send_blocked
+[s1] 884.7764 ms  handling request from c3  (server eff prio=241)
+[c3] 894.7839 ms  running (got reply)
+[c4] 898.2494 ms  send_blocked
+[s1] 898.2570 ms  handling request from c4  (server eff prio=240)
+[c4] 908.3707 ms  running (got reply)
+[c1] 1070.8357 ms  send_blocked
+[s1] 1070.8864 ms  handling request from c1  (server eff prio=236)
+[c1] 1080.8952 ms  running (got reply)
+[c2] 1084.9974 ms  send_blocked
+[s1] 1085.0055 ms  handling request from c2  (server eff prio=239)
+[c2] 1095.0716 ms  running (got reply)
+[c3] 1100.3174 ms  send_blocked
+[s1] 1100.3864 ms  handling request from c3  (server eff prio=241)
+[c3] 1110.3956 ms  running (got reply)
+[c4] 1111.0441 ms  send_blocked
+[s1] 1111.0520 ms  handling request from c4  (server eff prio=240)
+[c4] 1121.1999 ms  running (got reply)
+[c1] 1291.8642 ms  send_blocked
+[s1] 1291.9173 ms  handling request from c1  (server eff prio=236)
+[c2] 1299.2195 ms  send_blocked
+[s1] 1301.9656 ms  handling request from c2  (server eff prio=239)
+[c1] 1302.0308 ms  running (got reply)
+[c2] 1312.0777 ms  running (got reply)
+[c3] 1312.3279 ms  send_blocked
+[s1] 1312.3355 ms  handling request from c3  (server eff prio=241)
+[c4] 1322.2396 ms  send_blocked
+[c3] 1322.4561 ms  running (got reply)
+[s1] 1322.4745 ms  handling request from c4  (server eff prio=240)
+[c4] 1332.5799 ms  running (got reply)
+[c1] 1503.0775 ms  send_blocked
+[s1] 1503.1228 ms  handling request from c1  (server eff prio=236)
+[c1] 1513.1313 ms  running (got reply)
+[c2] 1514.9189 ms  send_blocked
+[s1] 1514.9261 ms  handling request from c2  (server eff prio=239)
+[c2] 1525.0329 ms  running (got reply)
+[c3] 1530.2331 ms  send_blocked
+[s1] 1530.2807 ms  handling request from c3  (server eff prio=241)
+[c4] 1538.0613 ms  send_blocked
+[c3] 1540.3244 ms  running (got reply)
+[s1] 1540.4991 ms  handling request from c4  (server eff prio=240)
+[c4] 1550.6283 ms  running (got reply)
+[c1] 1714.1462 ms  send_blocked
+[s1] 1714.1949 ms  handling request from c1  (server eff prio=236)
+[c1] 1724.2039 ms  running (got reply)
+[c2] 1725.5587 ms  send_blocked
+[s1] 1725.5667 ms  handling request from c2  (server eff prio=239)
+[c2] 1735.6638 ms  running (got reply)
+[c3] 1745.9401 ms  send_blocked
+[s1] 1745.9847 ms  handling request from c3  (server eff prio=241)
+[c3] 1755.9929 ms  running (got reply)
+[c4] 1756.4804 ms  send_blocked
+[s1] 1756.4881 ms  handling request from c4  (server eff prio=240)
+[c4] 1766.6077 ms  running (got reply)
+[c1] 1928.4133 ms  send_blocked
+[s1] 1928.4758 ms  handling request from c1  (server eff prio=236)
+[c2] 1936.9769 ms  send_blocked
+[s1] 1938.5216 ms  handling request from c2  (server eff prio=239)
+[c1] 1938.5716 ms  running (got reply)
+[c2] 1948.5768 ms  running (got reply)
+[c3] 1966.0710 ms  send_blocked
+[s1] 1966.0781 ms  handling request from c3  (server eff prio=241)
+[c4] 1969.5959 ms  send_blocked
+[c3] 1976.1221 ms  running (got reply)
+[s1] 1976.1892 ms  handling request from c4  (server eff prio=240)
+[c4] 1986.3194 ms  running (got reply)
+[c1] 2140.1960 ms  send_blocked
+[s1] 2140.2430 ms  handling request from c1  (server eff prio=236)
+[c1] 2150.4133 ms  running (got reply)
+[c2] 2155.6047 ms  send_blocked
+[s1] 2155.6542 ms  handling request from c2  (server eff prio=239)
+[c2] 2165.7059 ms  running (got reply)
+[c3] 2179.1706 ms  send_blocked
+[s1] 2179.2194 ms  handling request from c3  (server eff prio=241)
+[c4] 2187.9807 ms  send_blocked
+[c3] 2189.2675 ms  running (got reply)
+[s1] 2189.3530 ms  handling request from c4  (server eff prio=240)
+[c4] 2199.4031 ms  running (got reply)
+[c1] 2351.9340 ms  send_blocked
+[s1] 2351.9841 ms  handling request from c1  (server eff prio=236)
+[c1] 2362.0520 ms  running (got reply)
+[c2] 2367.2246 ms  send_blocked
+[s1] 2367.2707 ms  handling request from c2  (server eff prio=239)
+[c2] 2377.3185 ms  running (got reply)
+[c3] 2390.4394 ms  send_blocked
+[s1] 2390.4851 ms  handling request from c3  (server eff prio=241)
+[c3] 2400.4937 ms  running (got reply)
+[c4] 2400.9588 ms  send_blocked
+[s1] 2400.9672 ms  handling request from c4  (server eff prio=240)
+[c4] 2411.2239 ms  running (got reply)
+[c1] 2562.5948 ms  send_blocked
+[s1] 2562.6432 ms  handling request from c1  (server eff prio=236)
+[c1] 2572.6937 ms  running (got reply)
+[c2] 2582.9514 ms  send_blocked
+[s1] 2583.0015 ms  handling request from c2  (server eff prio=239)
+[c2] 2593.0504 ms  running (got reply)
+[c3] 2601.8705 ms  send_blocked
+[s1] 2601.9176 ms  handling request from c3  (server eff prio=241)
+[c3] 2612.0657 ms  running (got reply)
+[c4] 2617.1060 ms  send_blocked
+[s1] 2617.1537 ms  handling request from c4  (server eff prio=240)
+[c4] 2627.2034 ms  running (got reply)
+[c1] 2773.7856 ms  send_blocked
+[s1] 2773.8478 ms  handling request from c1  (server eff prio=236)
+[c1] 2783.8993 ms  running (got reply)
+[c2] 2794.1303 ms  send_blocked
+[s1] 2794.1842 ms  handling request from c2  (server eff prio=239)
+[c2] 2804.2450 ms  running (got reply)
+[c3] 2817.7323 ms  send_blocked
+[s1] 2817.7785 ms  handling request from c3  (server eff prio=241)
+[c3] 2827.9227 ms  running (got reply)
+[c4] 2833.1108 ms  send_blocked
+[s1] 2833.2668 ms  handling request from c4  (server eff prio=240)
+[c4] 2843.3159 ms  running (got reply)
+[c1] 2985.0500 ms  send_blocked
+[s1] 2985.1023 ms  handling request from c1  (server eff prio=236)
+[c1] 2995.1534 ms  running (got reply)
+[c2] 3005.3540 ms  send_blocked
+[s1] 3005.4098 ms  handling request from c2  (server eff prio=239)
+[c2] 3015.4722 ms  running (got reply)
+[c3] 3030.8149 ms  send_blocked
+[s1] 3030.8618 ms  handling request from c3  (server eff prio=241)
+[c3] 3040.8713 ms  running (got reply)
+[c4] 3045.2121 ms  send_blocked
+[s1] 3045.2194 ms  handling request from c4  (server eff prio=240)
+[c4] 3055.2654 ms  running (got reply)
+[c1] 3196.8486 ms  send_blocked
+[s1] 3196.8941 ms  handling request from c1  (server eff prio=236)
+[c1] 3206.9402 ms  running (got reply)
+[c2] 3217.1351 ms  send_blocked
+[s1] 3217.1890 ms  handling request from c2  (server eff prio=239)
+[c2] 3227.3224 ms  running (got reply)
+[c3] 3248.1706 ms  send_blocked
+[s1] 3248.2269 ms  handling request from c3  (server eff prio=241)
+[c3] 3258.2868 ms  running (got reply)
+[c4] 3262.4339 ms  send_blocked
+[s1] 3262.4412 ms  handling request from c4  (server eff prio=240)
+[c4] 3272.6056 ms  running (got reply)
+[c1] 3408.1128 ms  send_blocked
+[s1] 3408.1693 ms  handling request from c1  (server eff prio=236)
+[c1] 3418.2345 ms  running (got reply)
+[c2] 3431.8186 ms  send_blocked
+[s1] 3431.9242 ms  handling request from c2  (server eff prio=239)
+[c2] 3441.9820 ms  running (got reply)
+[c3] 3461.6654 ms  send_blocked
+[s1] 3461.7229 ms  handling request from c3  (server eff prio=241)
+[c3] 3471.7833 ms  running (got reply)
+[c4] 3479.4950 ms  send_blocked
+[s1] 3479.5402 ms  handling request from c4  (server eff prio=240)
+[c4] 3489.5852 ms  running (got reply)
+[c1] 3619.7513 ms  send_blocked
+[s1] 3619.7955 ms  handling request from c1  (server eff prio=236)
+[c1] 3629.8437 ms  running (got reply)
+[c2] 3642.8859 ms  send_blocked
+[s1] 3642.9430 ms  handling request from c2  (server eff prio=239)
+[c2] 3652.9897 ms  running (got reply)
+[c3] 3672.4404 ms  send_blocked
+[s1] 3672.4870 ms  handling request from c3  (server eff prio=241)
+[c3] 3682.5464 ms  running (got reply)
+[c4] 3692.8365 ms  send_blocked
+[s1] 3692.8852 ms  handling request from c4  (server eff prio=240)
+[c4] 3702.9337 ms  running (got reply)
+[c1] 3831.1311 ms  send_blocked
+[s1] 3831.1760 ms  handling request from c1  (server eff prio=236)
+[c1] 3841.2338 ms  running (got reply)
+[c2] 3854.5327 ms  send_blocked
+[s1] 3854.5880 ms  handling request from c2  (server eff prio=239)
+[c2] 3864.6330 ms  running (got reply)
+[c3] 3886.5442 ms  send_blocked
+[s1] 3886.5897 ms  handling request from c3  (server eff prio=241)
+[c3] 3896.6492 ms  running (got reply)
+[c4] 3903.3061 ms  send_blocked
+[s1] 3903.3922 ms  handling request from c4  (server eff prio=240)
+[c4] 3913.4513 ms  running (got reply)
+[c1] 4042.8229 ms  send_blocked
+[s1] 4042.8697 ms  handling request from c1  (server eff prio=236)
+[c1] 4053.0141 ms  running (got reply)
+[c2] 4071.4216 ms  send_blocked
+[s1] 4071.4734 ms  handling request from c2  (server eff prio=239)
+[c2] 4081.6372 ms  running (got reply)
+[c3] 4097.3562 ms  send_blocked
+[s1] 4097.4119 ms  handling request from c3  (server eff prio=241)
+[c3] 4107.5283 ms  running (got reply)
+[c4] 4114.5689 ms  send_blocked
+[s1] 4114.6129 ms  handling request from c4  (server eff prio=240)
+[c4] 4124.6695 ms  running (got reply)
+[c1] 4254.4632 ms  send_blocked
+[s1] 4254.5066 ms  handling request from c1  (server eff prio=236)
+[c1] 4264.5782 ms  running (got reply)
+[c2] 4285.5277 ms  send_blocked
+[s1] 4285.5721 ms  handling request from c2  (server eff prio=239)
+[c2] 4295.6191 ms  running (got reply)
+[c3] 4316.5487 ms  send_blocked
+[s1] 4316.5920 ms  handling request from c3  (server eff prio=241)
+[c4] 4325.3191 ms  send_blocked
+[c3] 4326.6373 ms  running (got reply)
+[s1] 4326.6887 ms  handling request from c4  (server eff prio=240)
+[c4] 4336.7359 ms  running (got reply)
+[c1] 4465.7556 ms  send_blocked
+[s1] 4466.0077 ms  handling request from c1  (server eff prio=236)
+[c1] 4476.0659 ms  running (got reply)
+[c2] 4502.2568 ms  send_blocked
+[s1] 4502.3007 ms  handling request from c2  (server eff prio=239)
+[c2] 4512.3448 ms  running (got reply)
+[c3] 4533.3995 ms  send_blocked
+[s1] 4533.4444 ms  handling request from c3  (server eff prio=241)
+[c4] 4539.1179 ms  send_blocked
+[c3] 4543.4905 ms  running (got reply)
+[s1] 4543.5547 ms  handling request from c4  (server eff prio=240)
+[c4] 4553.6026 ms  running (got reply)
+[c1] 4677.8736 ms  send_blocked
+[s1] 4677.9183 ms  handling request from c1  (server eff prio=236)
+[c1] 4687.9647 ms  running (got reply)
+[c2] 4719.0654 ms  send_blocked
+[s1] 4719.1797 ms  handling request from c2  (server eff prio=239)
+[c2] 4729.2274 ms  running (got reply)
+[c3] 4744.5613 ms  send_blocked
+[s1] 4744.6031 ms  handling request from c3  (server eff prio=241)
+[c3] 4754.6117 ms  running (got reply)
+[c4] 4754.9431 ms  send_blocked
+[s1] 4754.9507 ms  handling request from c4  (server eff prio=240)
+[c4] 4764.9971 ms  running (got reply)
+[c1] 4888.8016 ms  send_blocked
+[s1] 4888.8499 ms  handling request from c1  (server eff prio=236)
+[c1] 4899.0002 ms  running (got reply)
+[c2] 4930.2917 ms  send_blocked
+[s1] 4930.3354 ms  handling request from c2  (server eff prio=239)
+[c2] 4940.3816 ms  running (got reply)
+[c3] 4956.8263 ms  send_blocked
+[s1] 4956.8709 ms  handling request from c3  (server eff prio=241)
+[c4] 4965.5381 ms  send_blocked
+[c3] 4966.9970 ms  running (got reply)
+[s1] 4967.0487 ms  handling request from c4  (server eff prio=240)
+[c4] 4977.0976 ms  running (got reply)
+[c1] done
+[c2] done
+[c3] done
+[c4] done
+
+========== execution trace (inheritance) ==========
+time(ms)       thread   event                        priority
+--------       ------   -----                        --------
+0.1560         s1       STARTUP                      238     
+0.1564         s1       RECEIVE_BLOCKED              238     
+0.2233         c1       READY                        236     
+5.2237         c1       SEND_BLOCKED                 236     
+5.2843         s1       RUNNING_AFTER_RECEIVE        236     
+5.2845         c1       REPLY_BLOCKED                236     
+5.2888         s1       SERVICE_BEGIN                236     
+11.7589        c2       READY                        239     
+15.2907        s1       SERVICE_END                  236     
+15.2919        s1       AFTER_REPLY                  236     
+15.2921        s1       READY                        236     
+15.2923        s1       RECEIVE_BLOCKED              236     
+15.2936        c1       RUNNING                      236     
+16.7592        c2       SEND_BLOCKED                 239     
+16.7668        s1       RUNNING_AFTER_RECEIVE        239     
+16.7669        c2       REPLY_BLOCKED                239     
+16.7697        s1       SERVICE_BEGIN                239     
+20.4847        c3       READY                        241     
+20.5330        c4       READY                        240     
+25.4851        c3       SEND_BLOCKED                 241     
+25.5334        c4       SEND_BLOCKED                 240     
+26.7711        s1       SERVICE_END                  239     
+26.8128        s1       AFTER_REPLY                  239     
+26.8132        s1       READY                        239     
+26.8135        s1       RECEIVE_BLOCKED              239     
+26.8144        s1       RUNNING_AFTER_RECEIVE        241     
+26.8145        c3       REPLY_BLOCKED                241     
+26.8190        s1       SERVICE_BEGIN                241     
+26.8569        c2       RUNNING                      239     
+36.8208        s1       SERVICE_END                  241     
+36.8619        s1       AFTER_REPLY                  241     
+36.8623        s1       READY                        241     
+36.8625        s1       RECEIVE_BLOCKED              241     
+36.8645        c3       RUNNING                      241     
+36.9188        s1       RUNNING_AFTER_RECEIVE        240     
+36.9191        c4       REPLY_BLOCKED                240     
+36.9238        s1       SERVICE_BEGIN                240     
+46.9258        s1       SERVICE_END                  240     
+46.9658        s1       AFTER_REPLY                  240     
+46.9662        s1       READY                        240     
+46.9664        s1       RECEIVE_BLOCKED              240     
+46.9679        c4       RUNNING                      240     
+212.3291       c1       READY                        236     
+217.3296       c1       SEND_BLOCKED                 236     
+217.3871       s1       RUNNING_AFTER_RECEIVE        236     
+217.3873       c1       REPLY_BLOCKED                236     
+217.3916       s1       SERVICE_BEGIN                236     
+227.3934       s1       SERVICE_END                  236     
+227.4462       s1       AFTER_REPLY                  236     
+227.4466       s1       READY                        236     
+227.4468       s1       RECEIVE_BLOCKED              236     
+227.4484       c1       RUNNING                      236     
+229.1443       c2       READY                        239     
+234.1446       c2       SEND_BLOCKED                 239     
+234.2397       s1       RUNNING_AFTER_RECEIVE        239     
+234.2399       c2       REPLY_BLOCKED                239     
+234.2443       s1       SERVICE_BEGIN                239     
+234.4097       c3       READY                        241     
+239.4101       c3       SEND_BLOCKED                 241     
+244.2459       s1       SERVICE_END                  239     
+244.3945       s1       AFTER_REPLY                  239     
+244.3951       s1       READY                        239     
+244.3953       s1       RECEIVE_BLOCKED              239     
+244.3967       s1       RUNNING_AFTER_RECEIVE        241     
+244.3969       c3       REPLY_BLOCKED                241     
+244.4258       s1       SERVICE_BEGIN                241     
+244.4788       c4       READY                        240     
+249.4791       c4       SEND_BLOCKED                 240     
+249.4853       c2       RUNNING                      239     
+254.4279       s1       SERVICE_END                  241     
+254.4291       s1       AFTER_REPLY                  241     
+254.4294       s1       READY                        241     
+254.4297       s1       RECEIVE_BLOCKED              241     
+254.4315       c3       RUNNING                      241     
+254.5202       s1       RUNNING_AFTER_RECEIVE        240     
+254.5204       c4       REPLY_BLOCKED                240     
+254.5251       s1       SERVICE_BEGIN                240     
+264.5266       s1       SERVICE_END                  240     
+264.5668       s1       AFTER_REPLY                  240     
+264.5672       s1       READY                        240     
+264.5675       s1       RECEIVE_BLOCKED              240     
+264.5691       c4       RUNNING                      240     
+425.3777       c1       READY                        236     
+430.3781       c1       SEND_BLOCKED                 236     
+430.4372       s1       RUNNING_AFTER_RECEIVE        236     
+430.4374       c1       REPLY_BLOCKED                236     
+430.4419       s1       SERVICE_BEGIN                236     
+440.4436       s1       SERVICE_END                  236     
+440.4786       s1       AFTER_REPLY                  236     
+440.4790       s1       READY                        236     
+440.4793       s1       RECEIVE_BLOCKED              236     
+440.4808       c1       RUNNING                      236     
+446.0212       c2       READY                        239     
+451.0217       c2       SEND_BLOCKED                 239     
+451.0835       s1       RUNNING_AFTER_RECEIVE        239     
+451.0837       c2       REPLY_BLOCKED                239     
+451.0883       s1       SERVICE_BEGIN                239     
+451.2666       c3       READY                        241     
+456.2671       c3       SEND_BLOCKED                 241     
+461.0903       s1       SERVICE_END                  239     
+461.1414       s1       AFTER_REPLY                  239     
+461.1418       s1       READY                        239     
+461.1421       s1       RECEIVE_BLOCKED              239     
+461.1434       s1       RUNNING_AFTER_RECEIVE        241     
+461.1435       c3       REPLY_BLOCKED                241     
+461.1706       s1       SERVICE_BEGIN                241     
+461.3482       c2       RUNNING                      239     
+471.1722       s1       SERVICE_END                  241     
+471.3225       s1       AFTER_REPLY                  241     
+471.3230       s1       READY                        241     
+471.3233       s1       RECEIVE_BLOCKED              241     
+471.3246       c3       RUNNING                      241     
+471.4002       c4       READY                        240     
+476.4006       c4       SEND_BLOCKED                 240     
+476.4465       s1       RUNNING_AFTER_RECEIVE        240     
+476.4467       c4       REPLY_BLOCKED                240     
+476.4509       s1       SERVICE_BEGIN                240     
+486.4530       s1       SERVICE_END                  240     
+486.4941       s1       AFTER_REPLY                  240     
+486.4945       s1       READY                        240     
+486.4949       s1       RECEIVE_BLOCKED              240     
+486.4965       c4       RUNNING                      240     
+642.6862       c1       READY                        236     
+647.6865       c1       SEND_BLOCKED                 236     
+647.7357       s1       RUNNING_AFTER_RECEIVE        236     
+647.7359       c1       REPLY_BLOCKED                236     
+647.7408       s1       SERVICE_BEGIN                236     
+657.7498       c2       READY                        239     
+657.7769       s1       SERVICE_END                  236     
+657.7779       s1       AFTER_REPLY                  236     
+657.7783       s1       READY                        236     
+657.7785       s1       RECEIVE_BLOCKED              236     
+657.7796       c1       RUNNING                      236     
+662.7502       c2       SEND_BLOCKED                 239     
+662.7575       s1       RUNNING_AFTER_RECEIVE        239     
+662.7576       c2       REPLY_BLOCKED                239     
+662.7605       s1       SERVICE_BEGIN                239     
+668.0946       c3       READY                        241     
+672.7629       s1       SERVICE_END                  239     
+672.7644       s1       AFTER_REPLY                  239     
+672.7647       s1       READY                        239     
+672.7650       s1       RECEIVE_BLOCKED              239     
+672.7667       c2       RUNNING                      239     
+673.0950       c3       SEND_BLOCKED                 241     
+673.1027       s1       RUNNING_AFTER_RECEIVE        241     
+673.1027       c3       REPLY_BLOCKED                241     
+673.1054       s1       SERVICE_BEGIN                241     
+682.2195       c4       READY                        240     
+683.1073       s1       SERVICE_END                  241     
+683.1085       s1       AFTER_REPLY                  241     
+683.1088       s1       READY                        241     
+683.1090       s1       RECEIVE_BLOCKED              241     
+683.1107       c3       RUNNING                      241     
+687.2200       c4       SEND_BLOCKED                 240     
+687.2281       s1       RUNNING_AFTER_RECEIVE        240     
+687.2282       c4       REPLY_BLOCKED                240     
+687.2310       s1       SERVICE_BEGIN                240     
+697.2328       s1       SERVICE_END                  240     
+697.2740       s1       AFTER_REPLY                  240     
+697.2744       s1       READY                        240     
+697.2747       s1       RECEIVE_BLOCKED              240     
+697.2763       c4       RUNNING                      240     
+853.2620       c1       READY                        236     
+858.2625       c1       SEND_BLOCKED                 236     
+858.3104       s1       RUNNING_AFTER_RECEIVE        236     
+858.3106       c1       REPLY_BLOCKED                236     
+858.3154       s1       SERVICE_BEGIN                236     
+868.3171       s1       SERVICE_END                  236     
+868.4294       c1       RUNNING                      236     
+868.5417       c2       READY                        239     
+873.4370       s1       AFTER_REPLY                  236     
+873.4374       s1       READY                        236     
+873.4377       s1       RECEIVE_BLOCKED              236     
+873.5482       c2       SEND_BLOCKED                 239     
+873.6453       s1       RUNNING_AFTER_RECEIVE        239     
+873.6455       c2       REPLY_BLOCKED                239     
+873.6498       s1       SERVICE_BEGIN                239     
+879.7678       c3       READY                        241     
+883.6519       s1       SERVICE_END                  239     
+883.6532       s1       AFTER_REPLY                  239     
+883.6534       s1       READY                        239     
+883.6537       s1       RECEIVE_BLOCKED              239     
+883.6550       c2       RUNNING                      239     
+884.7682       c3       SEND_BLOCKED                 241     
+884.7760       s1       RUNNING_AFTER_RECEIVE        241     
+884.7761       c3       REPLY_BLOCKED                241     
+884.7788       s1       SERVICE_BEGIN                241     
+893.2488       c4       READY                        240     
+894.7806       s1       SERVICE_END                  241     
+894.7818       s1       AFTER_REPLY                  241     
+894.7821       s1       READY                        241     
+894.7824       s1       RECEIVE_BLOCKED              241     
+894.7838       c3       RUNNING                      241     
+898.2492       c4       SEND_BLOCKED                 240     
+898.2566       s1       RUNNING_AFTER_RECEIVE        240     
+898.2567       c4       REPLY_BLOCKED                240     
+898.2595       s1       SERVICE_BEGIN                240     
+908.2611       s1       SERVICE_END                  240     
+908.3682       s1       AFTER_REPLY                  240     
+908.3686       s1       READY                        240     
+908.3692       s1       RECEIVE_BLOCKED              240     
+908.3706       c4       RUNNING                      240     
+1065.8350      c1       READY                        236     
+1070.8356      c1       SEND_BLOCKED                 236     
+1070.8858      s1       RUNNING_AFTER_RECEIVE        236     
+1070.8861      c1       REPLY_BLOCKED                236     
+1070.8905      s1       SERVICE_BEGIN                236     
+1079.9967      c2       READY                        239     
+1080.8922      s1       SERVICE_END                  236     
+1080.8933      s1       AFTER_REPLY                  236     
+1080.8936      s1       READY                        236     
+1080.8938      s1       RECEIVE_BLOCKED              236     
+1080.8951      c1       RUNNING                      236     
+1084.9972      c2       SEND_BLOCKED                 239     
+1085.0051      s1       RUNNING_AFTER_RECEIVE        239     
+1085.0052      c2       REPLY_BLOCKED                239     
+1085.0081      s1       SERVICE_BEGIN                239     
+1095.0138      s1       SERVICE_END                  239     
+1095.0692      s1       AFTER_REPLY                  239     
+1095.0697      s1       READY                        239     
+1095.0699      s1       RECEIVE_BLOCKED              239     
+1095.0715      c2       RUNNING                      239     
+1095.2401      c3       READY                        241     
+1100.3172      c3       SEND_BLOCKED                 241     
+1100.3859      s1       RUNNING_AFTER_RECEIVE        241     
+1100.3861      c3       REPLY_BLOCKED                241     
+1100.3902      s1       SERVICE_BEGIN                241     
+1106.0436      c4       READY                        240     
+1110.3922      s1       SERVICE_END                  241     
+1110.3935      s1       AFTER_REPLY                  241     
+1110.3938      s1       READY                        241     
+1110.3941      s1       RECEIVE_BLOCKED              241     
+1110.3955      c3       RUNNING                      241     
+1111.0440      c4       SEND_BLOCKED                 240     
+1111.0516      s1       RUNNING_AFTER_RECEIVE        240     
+1111.0517      c4       REPLY_BLOCKED                240     
+1111.0544      s1       SERVICE_BEGIN                240     
+1121.0592      s1       SERVICE_END                  240     
+1121.1975      s1       AFTER_REPLY                  240     
+1121.1979      s1       READY                        240     
+1121.1982      s1       RECEIVE_BLOCKED              240     
+1121.1999      c4       RUNNING                      240     
+1286.8634      c1       READY                        236     
+1291.8641      c1       SEND_BLOCKED                 236     
+1291.9166      s1       RUNNING_AFTER_RECEIVE        236     
+1291.9170      c1       REPLY_BLOCKED                236     
+1291.9216      s1       SERVICE_BEGIN                236     
+1294.2189      c2       READY                        239     
+1299.2193      c2       SEND_BLOCKED                 239     
+1301.9234      s1       SERVICE_END                  236     
+1301.9634      s1       AFTER_REPLY                  236     
+1301.9638      s1       READY                        236     
+1301.9642      s1       RECEIVE_BLOCKED              236     
+1301.9652      s1       RUNNING_AFTER_RECEIVE        239     
+1301.9653      c2       REPLY_BLOCKED                239     
+1302.0305      c1       RUNNING                      236     
+1302.0728      s1       SERVICE_BEGIN                239     
+1307.3274      c3       READY                        241     
+1312.0746      s1       SERVICE_END                  239     
+1312.0758      s1       AFTER_REPLY                  239     
+1312.0761      s1       READY                        239     
+1312.0763      s1       RECEIVE_BLOCKED              239     
+1312.0776      c2       RUNNING                      239     
+1312.3277      c3       SEND_BLOCKED                 241     
+1312.3351      s1       RUNNING_AFTER_RECEIVE        241     
+1312.3352      c3       REPLY_BLOCKED                241     
+1312.3380      s1       SERVICE_BEGIN                241     
+1317.2391      c4       READY                        240     
+1322.2395      c4       SEND_BLOCKED                 240     
+1322.4524      s1       SERVICE_END                  241     
+1322.4538      s1       AFTER_REPLY                  241     
+1322.4541      s1       READY                        241     
+1322.4544      s1       RECEIVE_BLOCKED              241     
+1322.4560      c3       RUNNING                      241     
+1322.4740      s1       RUNNING_AFTER_RECEIVE        240     
+1322.4742      c4       REPLY_BLOCKED                240     
+1322.4789      s1       SERVICE_BEGIN                240     
+1332.4809      s1       SERVICE_END                  240     
+1332.5775      s1       AFTER_REPLY                  240     
+1332.5779      s1       READY                        240     
+1332.5782      s1       RECEIVE_BLOCKED              240     
+1332.5798      c4       RUNNING                      240     
+1498.0768      c1       READY                        236     
+1503.0774      c1       SEND_BLOCKED                 236     
+1503.1220      s1       RUNNING_AFTER_RECEIVE        236     
+1503.1222      c1       REPLY_BLOCKED                236     
+1503.1269      s1       SERVICE_BEGIN                236     
+1509.9184      c2       READY                        239     
+1513.1284      s1       SERVICE_END                  236     
+1513.1295      s1       AFTER_REPLY                  236     
+1513.1298      s1       READY                        236     
+1513.1300      s1       RECEIVE_BLOCKED              236     
+1513.1313      c1       RUNNING                      236     
+1514.9188      c2       SEND_BLOCKED                 239     
+1514.9257      s1       RUNNING_AFTER_RECEIVE        239     
+1514.9258      c2       REPLY_BLOCKED                239     
+1514.9287      s1       SERVICE_BEGIN                239     
+1524.9304      s1       SERVICE_END                  239     
+1525.0306      s1       AFTER_REPLY                  239     
+1525.0310      s1       READY                        239     
+1525.0313      s1       RECEIVE_BLOCKED              239     
+1525.0328      c2       RUNNING                      239     
+1525.2325      c3       READY                        241     
+1530.2330      c3       SEND_BLOCKED                 241     
+1530.2800      s1       RUNNING_AFTER_RECEIVE        241     
+1530.2802      c3       REPLY_BLOCKED                241     
+1530.2848      s1       SERVICE_BEGIN                241     
+1533.0607      c4       READY                        240     
+1538.0612      c4       SEND_BLOCKED                 240     
+1540.2862      s1       SERVICE_END                  241     
+1540.3216      s1       AFTER_REPLY                  241     
+1540.3221      s1       READY                        241     
+1540.3223      s1       RECEIVE_BLOCKED              241     
+1540.3242      c3       RUNNING                      241     
+1540.4986      s1       RUNNING_AFTER_RECEIVE        240     
+1540.4988      c4       REPLY_BLOCKED                240     
+1540.5032      s1       SERVICE_BEGIN                240     
+1550.5048      s1       SERVICE_END                  240     
+1550.6258      s1       AFTER_REPLY                  240     
+1550.6263      s1       READY                        240     
+1550.6267      s1       RECEIVE_BLOCKED              240     
+1550.6282      c4       RUNNING                      240     
+1709.1456      c1       READY                        236     
+1714.1460      c1       SEND_BLOCKED                 236     
+1714.1941      s1       RUNNING_AFTER_RECEIVE        236     
+1714.1944      c1       REPLY_BLOCKED                236     
+1714.1989      s1       SERVICE_BEGIN                236     
+1720.5581      c2       READY                        239     
+1724.2008      s1       SERVICE_END                  236     
+1724.2020      s1       AFTER_REPLY                  236     
+1724.2023      s1       READY                        236     
+1724.2025      s1       RECEIVE_BLOCKED              236     
+1724.2039      c1       RUNNING                      236     
+1725.5586      c2       SEND_BLOCKED                 239     
+1725.5661      s1       RUNNING_AFTER_RECEIVE        239     
+1725.5661      c2       REPLY_BLOCKED                239     
+1725.5691      s1       SERVICE_BEGIN                239     
+1735.5741      s1       SERVICE_END                  239     
+1735.6616      s1       AFTER_REPLY                  239     
+1735.6619      s1       READY                        239     
+1735.6622      s1       RECEIVE_BLOCKED              239     
+1735.6638      c2       RUNNING                      239     
+1740.9395      c3       READY                        241     
+1745.9399      c3       SEND_BLOCKED                 241     
+1745.9842      s1       RUNNING_AFTER_RECEIVE        241     
+1745.9844      c3       REPLY_BLOCKED                241     
+1745.9883      s1       SERVICE_BEGIN                241     
+1751.4797      c4       READY                        240     
+1755.9899      s1       SERVICE_END                  241     
+1755.9909      s1       AFTER_REPLY                  241     
+1755.9912      s1       READY                        241     
+1755.9914      s1       RECEIVE_BLOCKED              241     
+1755.9927      c3       RUNNING                      241     
+1756.4802      c4       SEND_BLOCKED                 240     
+1756.4878      s1       RUNNING_AFTER_RECEIVE        240     
+1756.4879      c4       REPLY_BLOCKED                240     
+1756.4905      s1       SERVICE_BEGIN                240     
+1766.4922      s1       SERVICE_END                  240     
+1766.6054      s1       AFTER_REPLY                  240     
+1766.6058      s1       READY                        240     
+1766.6061      s1       RECEIVE_BLOCKED              240     
+1766.6076      c4       RUNNING                      240     
+1923.3451      c1       READY                        236     
+1928.4132      c1       SEND_BLOCKED                 236     
+1928.4753      s1       RUNNING_AFTER_RECEIVE        236     
+1928.4756      c1       REPLY_BLOCKED                236     
+1928.4798      s1       SERVICE_BEGIN                236     
+1931.9762      c2       READY                        239     
+1936.9767      c2       SEND_BLOCKED                 239     
+1938.4815      s1       SERVICE_END                  236     
+1938.5196      s1       AFTER_REPLY                  236     
+1938.5200      s1       READY                        236     
+1938.5203      s1       RECEIVE_BLOCKED              236     
+1938.5214      s1       RUNNING_AFTER_RECEIVE        239     
+1938.5214      c2       REPLY_BLOCKED                239     
+1938.5257      s1       SERVICE_BEGIN                239     
+1938.5714      c1       RUNNING                      236     
+1948.5274      s1       SERVICE_END                  239     
+1948.5742      s1       AFTER_REPLY                  239     
+1948.5749      s1       READY                        239     
+1948.5752      s1       RECEIVE_BLOCKED              239     
+1948.5767      c2       RUNNING                      239     
+1961.0704      c3       READY                        241     
+1964.5952      c4       READY                        240     
+1966.0709      c3       SEND_BLOCKED                 241     
+1966.0777      s1       RUNNING_AFTER_RECEIVE        241     
+1966.0778      c3       REPLY_BLOCKED                241     
+1966.0805      s1       SERVICE_BEGIN                241     
+1969.5957      c4       SEND_BLOCKED                 240     
+1976.0823      s1       SERVICE_END                  241     
+1976.1191      s1       AFTER_REPLY                  241     
+1976.1197      s1       READY                        241     
+1976.1200      s1       RECEIVE_BLOCKED              241     
+1976.1220      c3       RUNNING                      241     
+1976.1886      s1       RUNNING_AFTER_RECEIVE        240     
+1976.1889      c4       REPLY_BLOCKED                240     
+1976.1945      s1       SERVICE_BEGIN                240     
+1986.1961      s1       SERVICE_END                  240     
+1986.3171      s1       AFTER_REPLY                  240     
+1986.3175      s1       READY                        240     
+1986.3178      s1       RECEIVE_BLOCKED              240     
+1986.3193      c4       RUNNING                      240     
+2135.1954      c1       READY                        236     
+2140.1959      c1       SEND_BLOCKED                 236     
+2140.2424      s1       RUNNING_AFTER_RECEIVE        236     
+2140.2426      c1       REPLY_BLOCKED                236     
+2140.2959      s1       SERVICE_BEGIN                236     
+2150.3751      s1       SERVICE_END                  236     
+2150.4110      s1       AFTER_REPLY                  236     
+2150.4114      s1       READY                        236     
+2150.4117      s1       RECEIVE_BLOCKED              236     
+2150.4132      c1       RUNNING                      236     
+2150.6041      c2       READY                        239     
+2155.6045      c2       SEND_BLOCKED                 239     
+2155.6536      s1       RUNNING_AFTER_RECEIVE        239     
+2155.6539      c2       REPLY_BLOCKED                239     
+2155.6581      s1       SERVICE_BEGIN                239     
+2165.6610      s1       SERVICE_END                  239     
+2165.7037      s1       AFTER_REPLY                  239     
+2165.7040      s1       READY                        239     
+2165.7043      s1       RECEIVE_BLOCKED              239     
+2165.7059      c2       RUNNING                      239     
+2174.1699      c3       READY                        241     
+2179.1705      c3       SEND_BLOCKED                 241     
+2179.2189      s1       RUNNING_AFTER_RECEIVE        241     
+2179.2191      c3       REPLY_BLOCKED                241     
+2179.2235      s1       SERVICE_BEGIN                241     
+2182.9800      c4       READY                        240     
+2187.9805      c4       SEND_BLOCKED                 240     
+2189.2252      s1       SERVICE_END                  241     
+2189.2646      s1       AFTER_REPLY                  241     
+2189.2650      s1       READY                        241     
+2189.2654      s1       RECEIVE_BLOCKED              241     
+2189.2674      c3       RUNNING                      241     
+2189.3523      s1       RUNNING_AFTER_RECEIVE        240     
+2189.3527      c4       REPLY_BLOCKED                240     
+2189.3596      s1       SERVICE_BEGIN                240     
+2199.3617      s1       SERVICE_END                  240     
+2199.4005      s1       AFTER_REPLY                  240     
+2199.4011      s1       READY                        240     
+2199.4014      s1       RECEIVE_BLOCKED              240     
+2199.4029      c4       RUNNING                      240     
+2346.9332      c1       READY                        236     
+2351.9338      c1       SEND_BLOCKED                 236     
+2351.9835      s1       RUNNING_AFTER_RECEIVE        236     
+2351.9838      c1       REPLY_BLOCKED                236     
+2351.9883      s1       SERVICE_BEGIN                236     
+2361.9911      s1       SERVICE_END                  236     
+2362.0492      s1       AFTER_REPLY                  236     
+2362.0497      s1       READY                        236     
+2362.0500      s1       RECEIVE_BLOCKED              236     
+2362.0519      c1       RUNNING                      236     
+2362.2241      c2       READY                        239     
+2367.2245      c2       SEND_BLOCKED                 239     
+2367.2700      s1       RUNNING_AFTER_RECEIVE        239     
+2367.2703      c2       REPLY_BLOCKED                239     
+2367.2749      s1       SERVICE_BEGIN                239     
+2377.2765      s1       SERVICE_END                  239     
+2377.3161      s1       AFTER_REPLY                  239     
+2377.3165      s1       READY                        239     
+2377.3169      s1       RECEIVE_BLOCKED              239     
+2377.3184      c2       RUNNING                      239     
+2385.4389      c3       READY                        241     
+2390.4392      c3       SEND_BLOCKED                 241     
+2390.4846      s1       RUNNING_AFTER_RECEIVE        241     
+2390.4848      c3       REPLY_BLOCKED                241     
+2390.4892      s1       SERVICE_BEGIN                241     
+2395.9581      c4       READY                        240     
+2400.4907      s1       SERVICE_END                  241     
+2400.4918      s1       AFTER_REPLY                  241     
+2400.4920      s1       READY                        241     
+2400.4923      s1       RECEIVE_BLOCKED              241     
+2400.4936      c3       RUNNING                      241     
+2400.9586      c4       SEND_BLOCKED                 240     
+2400.9667      s1       RUNNING_AFTER_RECEIVE        240     
+2400.9668      c4       REPLY_BLOCKED                240     
+2401.0189      s1       SERVICE_BEGIN                240     
+2411.0211      s1       SERVICE_END                  240     
+2411.2215      s1       AFTER_REPLY                  240     
+2411.2220      s1       READY                        240     
+2411.2223      s1       RECEIVE_BLOCKED              240     
+2411.2238      c4       RUNNING                      240     
+2557.5943      c1       READY                        236     
+2562.5947      c1       SEND_BLOCKED                 236     
+2562.6427      s1       RUNNING_AFTER_RECEIVE        236     
+2562.6429      c1       REPLY_BLOCKED                236     
+2562.6475      s1       SERVICE_BEGIN                236     
+2572.6496      s1       SERVICE_END                  236     
+2572.6912      s1       AFTER_REPLY                  236     
+2572.6917      s1       READY                        236     
+2572.6920      s1       RECEIVE_BLOCKED              236     
+2572.6936      c1       RUNNING                      236     
+2577.9507      c2       READY                        239     
+2582.9512      c2       SEND_BLOCKED                 239     
+2583.0009      s1       RUNNING_AFTER_RECEIVE        239     
+2583.0012      c2       REPLY_BLOCKED                239     
+2583.0054      s1       SERVICE_BEGIN                239     
+2593.0072      s1       SERVICE_END                  239     
+2593.0481      s1       AFTER_REPLY                  239     
+2593.0485      s1       READY                        239     
+2593.0488      s1       RECEIVE_BLOCKED              239     
+2593.0504      c2       RUNNING                      239     
+2596.8699      c3       READY                        241     
+2601.8703      c3       SEND_BLOCKED                 241     
+2601.9171      s1       RUNNING_AFTER_RECEIVE        241     
+2601.9173      c3       REPLY_BLOCKED                241     
+2601.9217      s1       SERVICE_BEGIN                241     
+2611.9236      s1       SERVICE_END                  241     
+2611.9652      s1       AFTER_REPLY                  241     
+2611.9656      s1       READY                        241     
+2611.9658      s1       RECEIVE_BLOCKED              241     
+2612.0653      c3       RUNNING                      241     
+2612.1054      c4       READY                        240     
+2617.1058      c4       SEND_BLOCKED                 240     
+2617.1531      s1       RUNNING_AFTER_RECEIVE        240     
+2617.1534      c4       REPLY_BLOCKED                240     
+2617.1577      s1       SERVICE_BEGIN                240     
+2627.1594      s1       SERVICE_END                  240     
+2627.2010      s1       AFTER_REPLY                  240     
+2627.2014      s1       READY                        240     
+2627.2017      s1       RECEIVE_BLOCKED              240     
+2627.2033      c4       RUNNING                      240     
+2768.7792      c1       READY                        236     
+2773.7854      c1       SEND_BLOCKED                 236     
+2773.8472      s1       RUNNING_AFTER_RECEIVE        236     
+2773.8474      c1       REPLY_BLOCKED                236     
+2773.8535      s1       SERVICE_BEGIN                236     
+2783.8553      s1       SERVICE_END                  236     
+2783.8967      s1       AFTER_REPLY                  236     
+2783.8971      s1       READY                        236     
+2783.8976      s1       RECEIVE_BLOCKED              236     
+2783.8992      c1       RUNNING                      236     
+2789.1297      c2       READY                        239     
+2794.1301      c2       SEND_BLOCKED                 239     
+2794.1837      s1       RUNNING_AFTER_RECEIVE        239     
+2794.1839      c2       REPLY_BLOCKED                239     
+2794.1882      s1       SERVICE_BEGIN                239     
+2804.1900      s1       SERVICE_END                  239     
+2804.2426      s1       AFTER_REPLY                  239     
+2804.2431      s1       READY                        239     
+2804.2434      s1       RECEIVE_BLOCKED              239     
+2804.2450      c2       RUNNING                      239     
+2812.7317      c3       READY                        241     
+2817.7321      c3       SEND_BLOCKED                 241     
+2817.7779      s1       RUNNING_AFTER_RECEIVE        241     
+2817.7782      c3       REPLY_BLOCKED                241     
+2817.7825      s1       SERVICE_BEGIN                241     
+2827.7842      s1       SERVICE_END                  241     
+2827.9035      s1       AFTER_REPLY                  241     
+2827.9110      s1       READY                        241     
+2827.9142      s1       RECEIVE_BLOCKED              241     
+2827.9227      c3       RUNNING                      241     
+2828.1101      c4       READY                        240     
+2833.1106      c4       SEND_BLOCKED                 240     
+2833.2663      s1       RUNNING_AFTER_RECEIVE        240     
+2833.2665      c4       REPLY_BLOCKED                240     
+2833.2705      s1       SERVICE_BEGIN                240     
+2843.2724      s1       SERVICE_END                  240     
+2843.3131      s1       AFTER_REPLY                  240     
+2843.3136      s1       READY                        240     
+2843.3139      s1       RECEIVE_BLOCKED              240     
+2843.3155      c4       RUNNING                      240     
+2980.0493      c1       READY                        236     
+2985.0498      c1       SEND_BLOCKED                 236     
+2985.1017      s1       RUNNING_AFTER_RECEIVE        236     
+2985.1019      c1       REPLY_BLOCKED                236     
+2985.1065      s1       SERVICE_BEGIN                236     
+2995.1083      s1       SERVICE_END                  236     
+2995.1507      s1       AFTER_REPLY                  236     
+2995.1511      s1       READY                        236     
+2995.1516      s1       RECEIVE_BLOCKED              236     
+2995.1533      c1       RUNNING                      236     
+3000.3535      c2       READY                        239     
+3005.3539      c2       SEND_BLOCKED                 239     
+3005.4092      s1       RUNNING_AFTER_RECEIVE        239     
+3005.4095      c2       REPLY_BLOCKED                239     
+3005.4139      s1       SERVICE_BEGIN                239     
+3015.4161      s1       SERVICE_END                  239     
+3015.4694      s1       AFTER_REPLY                  239     
+3015.4701      s1       READY                        239     
+3015.4705      s1       RECEIVE_BLOCKED              239     
+3015.4722      c2       RUNNING                      239     
+3025.8142      c3       READY                        241     
+3030.8147      c3       SEND_BLOCKED                 241     
+3030.8613      s1       RUNNING_AFTER_RECEIVE        241     
+3030.8615      c3       REPLY_BLOCKED                241     
+3030.8659      s1       SERVICE_BEGIN                241     
+3040.2114      c4       READY                        240     
+3040.8680      s1       SERVICE_END                  241     
+3040.8692      s1       AFTER_REPLY                  241     
+3040.8695      s1       READY                        241     
+3040.8698      s1       RECEIVE_BLOCKED              241     
+3040.8712      c3       RUNNING                      241     
+3045.2118      c4       SEND_BLOCKED                 240     
+3045.2190      s1       RUNNING_AFTER_RECEIVE        240     
+3045.2191      c4       REPLY_BLOCKED                240     
+3045.2220      s1       SERVICE_BEGIN                240     
+3055.2235      s1       SERVICE_END                  240     
+3055.2626      s1       AFTER_REPLY                  240     
+3055.2631      s1       READY                        240     
+3055.2634      s1       RECEIVE_BLOCKED              240     
+3055.2653      c4       RUNNING                      240     
+3191.8480      c1       READY                        236     
+3196.8485      c1       SEND_BLOCKED                 236     
+3196.8935      s1       RUNNING_AFTER_RECEIVE        236     
+3196.8938      c1       REPLY_BLOCKED                236     
+3196.8980      s1       SERVICE_BEGIN                236     
+3206.8999      s1       SERVICE_END                  236     
+3206.9376      s1       AFTER_REPLY                  236     
+3206.9380      s1       READY                        236     
+3206.9385      s1       RECEIVE_BLOCKED              236     
+3206.9402      c1       RUNNING                      236     
+3212.1346      c2       READY                        239     
+3217.1349      c2       SEND_BLOCKED                 239     
+3217.1885      s1       RUNNING_AFTER_RECEIVE        239     
+3217.1888      c2       REPLY_BLOCKED                239     
+3217.1928      s1       SERVICE_BEGIN                239     
+3227.1947      s1       SERVICE_END                  239     
+3227.3198      s1       AFTER_REPLY                  239     
+3227.3201      s1       READY                        239     
+3227.3207      s1       RECEIVE_BLOCKED              239     
+3227.3223      c2       RUNNING                      239     
+3243.1699      c3       READY                        241     
+3248.1705      c3       SEND_BLOCKED                 241     
+3248.2263      s1       RUNNING_AFTER_RECEIVE        241     
+3248.2266      c3       REPLY_BLOCKED                241     
+3248.2816      s1       SERVICE_BEGIN                241     
+3257.4334      c4       READY                        240     
+3258.2837      s1       SERVICE_END                  241     
+3258.2848      s1       AFTER_REPLY                  241     
+3258.2851      s1       READY                        241     
+3258.2854      s1       RECEIVE_BLOCKED              241     
+3258.2867      c3       RUNNING                      241     
+3262.4338      c4       SEND_BLOCKED                 240     
+3262.4409      s1       RUNNING_AFTER_RECEIVE        240     
+3262.4410      c4       REPLY_BLOCKED                240     
+3262.4435      s1       SERVICE_BEGIN                240     
+3272.5636      s1       SERVICE_END                  240     
+3272.6029      s1       AFTER_REPLY                  240     
+3272.6033      s1       READY                        240     
+3272.6040      s1       RECEIVE_BLOCKED              240     
+3272.6055      c4       RUNNING                      240     
+3403.1122      c1       READY                        236     
+3408.1126      c1       SEND_BLOCKED                 236     
+3408.1687      s1       RUNNING_AFTER_RECEIVE        236     
+3408.1690      c1       REPLY_BLOCKED                236     
+3408.1732      s1       SERVICE_BEGIN                236     
+3418.1774      s1       SERVICE_END                  236     
+3418.2319      s1       AFTER_REPLY                  236     
+3418.2324      s1       READY                        236     
+3418.2327      s1       RECEIVE_BLOCKED              236     
+3418.2344      c1       RUNNING                      236     
+3426.8179      c2       READY                        239     
+3431.8185      c2       SEND_BLOCKED                 239     
+3431.9236      s1       RUNNING_AFTER_RECEIVE        239     
+3431.9239      c2       REPLY_BLOCKED                239     
+3431.9283      s1       SERVICE_BEGIN                239     
+3441.9302      s1       SERVICE_END                  239     
+3441.9796      s1       AFTER_REPLY                  239     
+3441.9800      s1       READY                        239     
+3441.9803      s1       RECEIVE_BLOCKED              239     
+3441.9820      c2       RUNNING                      239     
+3456.6648      c3       READY                        241     
+3461.6653      c3       SEND_BLOCKED                 241     
+3461.7224      s1       RUNNING_AFTER_RECEIVE        241     
+3461.7226      c3       REPLY_BLOCKED                241     
+3461.7268      s1       SERVICE_BEGIN                241     
+3471.7288      s1       SERVICE_END                  241     
+3471.7807      s1       AFTER_REPLY                  241     
+3471.7814      s1       READY                        241     
+3471.7817      s1       RECEIVE_BLOCKED              241     
+3471.7832      c3       RUNNING                      241     
+3474.4945      c4       READY                        240     
+3479.4949      c4       SEND_BLOCKED                 240     
+3479.5397      s1       RUNNING_AFTER_RECEIVE        240     
+3479.5400      c4       REPLY_BLOCKED                240     
+3479.5442      s1       SERVICE_BEGIN                240     
+3489.5457      s1       SERVICE_END                  240     
+3489.5829      s1       AFTER_REPLY                  240     
+3489.5834      s1       READY                        240     
+3489.5837      s1       RECEIVE_BLOCKED              240     
+3489.5852      c4       RUNNING                      240     
+3614.7507      c1       READY                        236     
+3619.7511      c1       SEND_BLOCKED                 236     
+3619.7946      s1       RUNNING_AFTER_RECEIVE        236     
+3619.7948      c1       REPLY_BLOCKED                236     
+3619.8032      s1       SERVICE_BEGIN                236     
+3629.8050      s1       SERVICE_END                  236     
+3629.8414      s1       AFTER_REPLY                  236     
+3629.8418      s1       READY                        236     
+3629.8421      s1       RECEIVE_BLOCKED              236     
+3629.8436      c1       RUNNING                      236     
+3637.8850      c2       READY                        239     
+3642.8857      c2       SEND_BLOCKED                 239     
+3642.9426      s1       RUNNING_AFTER_RECEIVE        239     
+3642.9428      c2       REPLY_BLOCKED                239     
+3642.9469      s1       SERVICE_BEGIN                239     
+3652.9488      s1       SERVICE_END                  239     
+3652.9873      s1       AFTER_REPLY                  239     
+3652.9880      s1       READY                        239     
+3652.9883      s1       RECEIVE_BLOCKED              239     
+3652.9897      c2       RUNNING                      239     
+3667.4396      c3       READY                        241     
+3672.4402      c3       SEND_BLOCKED                 241     
+3672.4864      s1       RUNNING_AFTER_RECEIVE        241     
+3672.4866      c3       REPLY_BLOCKED                241     
+3672.4910      s1       SERVICE_BEGIN                241     
+3682.4929      s1       SERVICE_END                  241     
+3682.5441      s1       AFTER_REPLY                  241     
+3682.5445      s1       READY                        241     
+3682.5448      s1       RECEIVE_BLOCKED              241     
+3682.5463      c3       RUNNING                      241     
+3687.8358      c4       READY                        240     
+3692.8364      c4       SEND_BLOCKED                 240     
+3692.8846      s1       RUNNING_AFTER_RECEIVE        240     
+3692.8849      c4       REPLY_BLOCKED                240     
+3692.8891      s1       SERVICE_BEGIN                240     
+3702.8908      s1       SERVICE_END                  240     
+3702.9315      s1       AFTER_REPLY                  240     
+3702.9318      s1       READY                        240     
+3702.9321      s1       RECEIVE_BLOCKED              240     
+3702.9337      c4       RUNNING                      240     
+3826.1305      c1       READY                        236     
+3831.1309      c1       SEND_BLOCKED                 236     
+3831.1755      s1       RUNNING_AFTER_RECEIVE        236     
+3831.1757      c1       REPLY_BLOCKED                236     
+3831.1800      s1       SERVICE_BEGIN                236     
+3841.1817      s1       SERVICE_END                  236     
+3841.2314      s1       AFTER_REPLY                  236     
+3841.2319      s1       READY                        236     
+3841.2322      s1       RECEIVE_BLOCKED              236     
+3841.2338      c1       RUNNING                      236     
+3849.5322      c2       READY                        239     
+3854.5326      c2       SEND_BLOCKED                 239     
+3854.5875      s1       RUNNING_AFTER_RECEIVE        239     
+3854.5877      c2       REPLY_BLOCKED                239     
+3854.5917      s1       SERVICE_BEGIN                239     
+3864.5934      s1       SERVICE_END                  239     
+3864.6306      s1       AFTER_REPLY                  239     
+3864.6310      s1       READY                        239     
+3864.6314      s1       RECEIVE_BLOCKED              239     
+3864.6329      c2       RUNNING                      239     
+3881.5435      c3       READY                        241     
+3886.5440      c3       SEND_BLOCKED                 241     
+3886.5892      s1       RUNNING_AFTER_RECEIVE        241     
+3886.5894      c3       REPLY_BLOCKED                241     
+3886.5934      s1       SERVICE_BEGIN                241     
+3896.6027      s1       SERVICE_END                  241     
+3896.6469      s1       AFTER_REPLY                  241     
+3896.6473      s1       READY                        241     
+3896.6476      s1       RECEIVE_BLOCKED              241     
+3896.6491      c3       RUNNING                      241     
+3898.3055      c4       READY                        240     
+3903.3059      c4       SEND_BLOCKED                 240     
+3903.3917      s1       RUNNING_AFTER_RECEIVE        240     
+3903.3919      c4       REPLY_BLOCKED                240     
+3903.3962      s1       SERVICE_BEGIN                240     
+3913.3984      s1       SERVICE_END                  240     
+3913.4491      s1       AFTER_REPLY                  240     
+3913.4495      s1       READY                        240     
+3913.4498      s1       RECEIVE_BLOCKED              240     
+3913.4513      c4       RUNNING                      240     
+4037.8223      c1       READY                        236     
+4042.8227      c1       SEND_BLOCKED                 236     
+4042.8693      s1       RUNNING_AFTER_RECEIVE        236     
+4042.8695      c1       REPLY_BLOCKED                236     
+4042.8735      s1       SERVICE_BEGIN                236     
+4052.8755      s1       SERVICE_END                  236     
+4053.0115      s1       AFTER_REPLY                  236     
+4053.0119      s1       READY                        236     
+4053.0123      s1       RECEIVE_BLOCKED              236     
+4053.0141      c1       RUNNING                      236     
+4066.4210      c2       READY                        239     
+4071.4215      c2       SEND_BLOCKED                 239     
+4071.4728      s1       RUNNING_AFTER_RECEIVE        239     
+4071.4731      c2       REPLY_BLOCKED                239     
+4071.5258      s1       SERVICE_BEGIN                239     
+4081.5279      s1       SERVICE_END                  239     
+4081.6345      s1       AFTER_REPLY                  239     
+4081.6350      s1       READY                        239     
+4081.6356      s1       RECEIVE_BLOCKED              239     
+4081.6371      c2       RUNNING                      239     
+4092.3555      c3       READY                        241     
+4097.3561      c3       SEND_BLOCKED                 241     
+4097.4111      s1       RUNNING_AFTER_RECEIVE        241     
+4097.4114      c3       REPLY_BLOCKED                241     
+4097.4158      s1       SERVICE_BEGIN                241     
+4107.4174      s1       SERVICE_END                  241     
+4107.5258      s1       AFTER_REPLY                  241     
+4107.5263      s1       READY                        241     
+4107.5266      s1       RECEIVE_BLOCKED              241     
+4107.5281      c3       RUNNING                      241     
+4109.5684      c4       READY                        240     
+4114.5688      c4       SEND_BLOCKED                 240     
+4114.6123      s1       RUNNING_AFTER_RECEIVE        240     
+4114.6126      c4       REPLY_BLOCKED                240     
+4114.6165      s1       SERVICE_BEGIN                240     
+4124.6186      s1       SERVICE_END                  240     
+4124.6670      s1       AFTER_REPLY                  240     
+4124.6675      s1       READY                        240     
+4124.6678      s1       RECEIVE_BLOCKED              240     
+4124.6695      c4       RUNNING                      240     
+4249.4627      c1       READY                        236     
+4254.4630      c1       SEND_BLOCKED                 236     
+4254.5061      s1       RUNNING_AFTER_RECEIVE        236     
+4254.5063      c1       REPLY_BLOCKED                236     
+4254.5103      s1       SERVICE_BEGIN                236     
+4264.5277      s1       SERVICE_END                  236     
+4264.5760      s1       AFTER_REPLY                  236     
+4264.5763      s1       READY                        236     
+4264.5765      s1       RECEIVE_BLOCKED              236     
+4264.5781      c1       RUNNING                      236     
+4280.5272      c2       READY                        239     
+4285.5276      c2       SEND_BLOCKED                 239     
+4285.5713      s1       RUNNING_AFTER_RECEIVE        239     
+4285.5716      c2       REPLY_BLOCKED                239     
+4285.5762      s1       SERVICE_BEGIN                239     
+4295.5777      s1       SERVICE_END                  239     
+4295.6168      s1       AFTER_REPLY                  239     
+4295.6172      s1       READY                        239     
+4295.6175      s1       RECEIVE_BLOCKED              239     
+4295.6190      c2       RUNNING                      239     
+4311.5481      c3       READY                        241     
+4316.5486      c3       SEND_BLOCKED                 241     
+4316.5914      s1       RUNNING_AFTER_RECEIVE        241     
+4316.5917      c3       REPLY_BLOCKED                241     
+4316.5958      s1       SERVICE_BEGIN                241     
+4320.3185      c4       READY                        240     
+4325.3189      c4       SEND_BLOCKED                 240     
+4326.5973      s1       SERVICE_END                  241     
+4326.6345      s1       AFTER_REPLY                  241     
+4326.6349      s1       READY                        241     
+4326.6353      s1       RECEIVE_BLOCKED              241     
+4326.6372      c3       RUNNING                      241     
+4326.6881      s1       RUNNING_AFTER_RECEIVE        240     
+4326.6883      c4       REPLY_BLOCKED                240     
+4326.6929      s1       SERVICE_BEGIN                240     
+4336.6945      s1       SERVICE_END                  240     
+4336.7337      s1       AFTER_REPLY                  240     
+4336.7341      s1       READY                        240     
+4336.7344      s1       RECEIVE_BLOCKED              240     
+4336.7358      c4       RUNNING                      240     
+4460.7551      c1       READY                        236     
+4465.7554      c1       SEND_BLOCKED                 236     
+4466.0071      s1       RUNNING_AFTER_RECEIVE        236     
+4466.0074      c1       REPLY_BLOCKED                236     
+4466.0117      s1       SERVICE_BEGIN                236     
+4476.0134      s1       SERVICE_END                  236     
+4476.0636      s1       AFTER_REPLY                  236     
+4476.0639      s1       READY                        236     
+4476.0642      s1       RECEIVE_BLOCKED              236     
+4476.0658      c1       RUNNING                      236     
+4497.2563      c2       READY                        239     
+4502.2567      c2       SEND_BLOCKED                 239     
+4502.3002      s1       RUNNING_AFTER_RECEIVE        239     
+4502.3004      c2       REPLY_BLOCKED                239     
+4502.3044      s1       SERVICE_BEGIN                239     
+4512.3063      s1       SERVICE_END                  239     
+4512.3427      s1       AFTER_REPLY                  239     
+4512.3431      s1       READY                        239     
+4512.3433      s1       RECEIVE_BLOCKED              239     
+4512.3448      c2       RUNNING                      239     
+4528.3989      c3       READY                        241     
+4533.3994      c3       SEND_BLOCKED                 241     
+4533.4439      s1       RUNNING_AFTER_RECEIVE        241     
+4533.4441      c3       REPLY_BLOCKED                241     
+4533.4481      s1       SERVICE_BEGIN                241     
+4534.1173      c4       READY                        240     
+4539.1177      c4       SEND_BLOCKED                 240     
+4543.4498      s1       SERVICE_END                  241     
+4543.4875      s1       AFTER_REPLY                  241     
+4543.4879      s1       READY                        241     
+4543.4882      s1       RECEIVE_BLOCKED              241     
+4543.4904      c3       RUNNING                      241     
+4543.5541      s1       RUNNING_AFTER_RECEIVE        240     
+4543.5544      c4       REPLY_BLOCKED                240     
+4543.5601      s1       SERVICE_BEGIN                240     
+4553.5620      s1       SERVICE_END                  240     
+4553.6004      s1       AFTER_REPLY                  240     
+4553.6007      s1       READY                        240     
+4553.6010      s1       RECEIVE_BLOCKED              240     
+4553.6026      c4       RUNNING                      240     
+4672.8730      c1       READY                        236     
+4677.8734      c1       SEND_BLOCKED                 236     
+4677.9178      s1       RUNNING_AFTER_RECEIVE        236     
+4677.9180      c1       REPLY_BLOCKED                236     
+4677.9221      s1       SERVICE_BEGIN                236     
+4687.9238      s1       SERVICE_END                  236     
+4687.9623      s1       AFTER_REPLY                  236     
+4687.9628      s1       READY                        236     
+4687.9632      s1       RECEIVE_BLOCKED              236     
+4687.9647      c1       RUNNING                      236     
+4714.0648      c2       READY                        239     
+4719.0653      c2       SEND_BLOCKED                 239     
+4719.1788      s1       RUNNING_AFTER_RECEIVE        239     
+4719.1793      c2       REPLY_BLOCKED                239     
+4719.1848      s1       SERVICE_BEGIN                239     
+4729.1869      s1       SERVICE_END                  239     
+4729.2252      s1       AFTER_REPLY                  239     
+4729.2256      s1       READY                        239     
+4729.2258      s1       RECEIVE_BLOCKED              239     
+4729.2273      c2       RUNNING                      239     
+4739.5607      c3       READY                        241     
+4744.5611      c3       SEND_BLOCKED                 241     
+4744.6026      s1       RUNNING_AFTER_RECEIVE        241     
+4744.6029      c3       REPLY_BLOCKED                241     
+4744.6070      s1       SERVICE_BEGIN                241     
+4749.9424      c4       READY                        240     
+4754.6086      s1       SERVICE_END                  241     
+4754.6097      s1       AFTER_REPLY                  241     
+4754.6099      s1       READY                        241     
+4754.6101      s1       RECEIVE_BLOCKED              241     
+4754.6116      c3       RUNNING                      241     
+4754.9429      c4       SEND_BLOCKED                 240     
+4754.9504      s1       RUNNING_AFTER_RECEIVE        240     
+4754.9505      c4       REPLY_BLOCKED                240     
+4754.9533      s1       SERVICE_BEGIN                240     
+4764.9554      s1       SERVICE_END                  240     
+4764.9947      s1       AFTER_REPLY                  240     
+4764.9953      s1       READY                        240     
+4764.9955      s1       RECEIVE_BLOCKED              240     
+4764.9970      c4       RUNNING                      240     
+4883.8010      c1       READY                        236     
+4888.8014      c1       SEND_BLOCKED                 236     
+4888.8493      s1       RUNNING_AFTER_RECEIVE        236     
+4888.8496      c1       REPLY_BLOCKED                236     
+4888.9042      s1       SERVICE_BEGIN                236     
+4898.9064      s1       SERVICE_END                  236     
+4898.9975      s1       AFTER_REPLY                  236     
+4898.9979      s1       READY                        236     
+4898.9982      s1       RECEIVE_BLOCKED              236     
+4899.0000      c1       RUNNING                      236     
+4925.2912      c2       READY                        239     
+4930.2915      c2       SEND_BLOCKED                 239     
+4930.3348      s1       RUNNING_AFTER_RECEIVE        239     
+4930.3351      c2       REPLY_BLOCKED                239     
+4930.3392      s1       SERVICE_BEGIN                239     
+4940.3408      s1       SERVICE_END                  239     
+4940.3792      s1       AFTER_REPLY                  239     
+4940.3797      s1       READY                        239     
+4940.3800      s1       RECEIVE_BLOCKED              239     
+4940.3815      c2       RUNNING                      239     
+4951.8255      c3       READY                        241     
+4956.8261      c3       SEND_BLOCKED                 241     
+4956.8703      s1       RUNNING_AFTER_RECEIVE        241     
+4956.8705      c3       REPLY_BLOCKED                241     
+4956.8746      s1       SERVICE_BEGIN                241     
+4960.5374      c4       READY                        240     
+4965.5379      c4       SEND_BLOCKED                 240     
+4966.9550      s1       SERVICE_END                  241     
+4966.9939      s1       AFTER_REPLY                  241     
+4966.9943      s1       READY                        241     
+4966.9946      s1       RECEIVE_BLOCKED              241     
+4966.9968      c3       RUNNING                      241     
+4967.0482      s1       RUNNING_AFTER_RECEIVE        240     
+4967.0485      c4       REPLY_BLOCKED                240     
+4967.0530      s1       SERVICE_BEGIN                240     
+4977.0545      s1       SERVICE_END                  240     
+4977.0948      s1       AFTER_REPLY                  240     
+4977.0954      s1       READY                        240     
+4977.0957      s1       RECEIVE_BLOCKED              240     
+4977.0973      c4       RUNNING                      240     
+==================================================
+key things to check for r8:
+  1) s1 priority should rise above its base priority 238 when serving higher-priority clients
+  2) RUNNING_AFTER_RECEIVE / SERVICE_BEGIN priorities should reflect the selected client
+  3) AFTER_REPLY may still show inherited priority until the next MsgReceive selects a new request
+  4) verify the strongest evidence with System Profiler / kernel trace

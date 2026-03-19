@@ -272,7 +272,7 @@ static void *server_thread(void *arg) {
     (void)arg;
 
     // create the channel that clients will connect to
-    g_chid = ChannelCreate(0);
+    g_chid = ChannelCreate(_NTO_CHF_FIXED_PRIORITY);
     if (g_chid == -1) {
         perror("ChannelCreate failed");
         exit(EXIT_FAILURE);
