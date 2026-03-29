@@ -1,0 +1,32 @@
+=== latency vs message size experiment (figure 6) ===
+message sizes: 96, 128, 256, 512, 1024, 1536, 2048 bytes
+iterations per size: 10000
+[server] started at priority 238, channel 1
+[main] connected to server (chid=1, coid=1073741825)
+[client] started at priority 236
+[client] running 10000 iterations per message size
+[client] testing 96 bytes...
+[client] testing 128 bytes...
+[client] testing 256 bytes...
+[client] testing 512 bytes...
+[client] testing 1024 bytes...
+[client] testing 1536 bytes...
+[client] testing 2048 bytes...
+========== latency vs message size ==========
+size(B)    min(us)      avg(us)      max(us)      iters     
+-------    -------      -------      -------      -----     
+96         45.85        298.68       2553.84      10000     
+128        68.33        296.38       1451.84      10000     
+256        73.69        296.83       2666.92      10000     
+512        86.86        295.93       2626.87      10000     
+1024       69.72        297.06       2399.86      10000     
+1536       141.58       296.25       1389.54      10000     
+2048       164.02       295.95       3222.22      10000     
+=============================================
+compare against the paper's figure 6.
+key things to check:
+  - latency should increase roughly linearly with message size
+  - the trend shape matters more than absolute values
+    (our hardware is different from the paper's rpi4)
+  - min latency shows the best-case communication overhead
+  - max latency shows worst-case jitter
