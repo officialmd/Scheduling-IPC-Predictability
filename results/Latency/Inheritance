@@ -1,0 +1,30 @@
+=== latency vs message size (with inheritance) ===
+message sizes: 96, 128, 256, 512, 1024, 1536, 2048 bytes
+iterations per size: 10000
+[server] started at priority 238, channel 1 (inheritance enabled)
+[main] connected to server (chid=1, coid=1073741825)
+[client] started at priority 236
+[client] running 10000 iterations per message size
+[client] testing 96 bytes...
+[client] testing 128 bytes...
+[client] testing 256 bytes...
+[client] testing 512 bytes...
+[client] testing 1024 bytes...
+[client] testing 1536 bytes...
+[client] testing 2048 bytes...
+========== latency vs message size (inheritance) ==========
+size(B)    min(us)      avg(us)      max(us)      iters     
+-------    -------      -------      -------      -----     
+96         48.86        238.72       1481.10      10000     
+128        0.03         234.81       1629.56      10000     
+256        0.03         238.68       1776.14      10000     
+512        11.84        230.18       1882.74      10000     
+1024       34.06        230.48       1441.11      10000     
+1536       0.03         231.86       2528.96      10000     
+2048       10.90        232.40       2129.58      10000     
+============================================================
+compare against the no-inheritance results.
+key things to check:
+  - does inheritance add measurable overhead?
+  - is the latency trend shape the same?
+  - compare min values between the two runs
